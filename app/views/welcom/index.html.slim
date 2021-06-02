@@ -1,0 +1,6 @@
+h1 Welcom#index
+p Find me in app/views/welcom/index.html.slim
+- if logged_in?
+  = link_to 'ログアウト', logout_path, method: :delete
+- else
+  = link_to 'ログイン', '/auth/discord', method: :post
