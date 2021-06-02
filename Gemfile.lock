@@ -161,6 +161,9 @@ GEM
     omniauth-oauth2 (1.7.1)
       oauth2 (~> 1.4)
       omniauth (>= 1.9, < 3)
+    omniauth-rails_csrf_protection (1.0.0)
+      actionpack (>= 4.2)
+      omniauth (~> 2.0)
     opus-ruby (1.0.1)
       ffi
     pg (1.2.3)
@@ -294,6 +297,7 @@ DEPENDENCIES
   listen (~> 3.3)
   omniauth
   omniauth-discord
+  omniauth-rails_csrf_protection
   pg (~> 1.1)
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
