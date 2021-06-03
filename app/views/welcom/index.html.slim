@@ -4,5 +4,6 @@ p Find me in app/views/welcom/index.html.slim
   = link_to 'ログアウト', logout_path, method: :delete
   - if current_user.admin?
     = link_to 'ユーザー一覧', admin_users_path
+    = link_to '質問一覧', admin_questions_path
 - else
   = link_to 'ログイン', '/auth/discord', method: :post

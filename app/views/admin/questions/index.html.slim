@@ -1,2 +1,15 @@
 h1 質問一覧
 
+= link_to '新規登録', new_admin_question_path
+
+table
+  thead
+    tr
+      th= Question.human_attribute_name(:body)
+      th
+  tbody
+    - @questions.each do |question|
+      tr
+        td= question.body
+        td= link_to '編集', edit_admin_question_path(question)
+        td= link_to '削除', [:admin, question], method: :delete, data: { confirm: '本当によろしいですか？' }
