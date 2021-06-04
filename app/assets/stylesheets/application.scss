@@ -1,0 +1,19 @@
+@import "normalize.scss";
+// @import "variables.scss";
+// @import "mixins.scss";
+@import "base.scss";
+@import "partials/*";
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.notice {
+  padding: 10px 20px;
+  margin: 10px 0;
+  border: 1px solid lightseagreen;
+  color: lightseagreen;
+  border-radius: 4px;
+}

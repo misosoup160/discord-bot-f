@@ -9,6 +9,21 @@ html
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   body
-    -if flash.notice
-      = notice
-    = yield
+    header.header
+      .container
+        .header__title
+          | DiscordBotF
+        .header_link
+          .header_link__icon
+          .header_link_name
+            =current_user.name
+    main.main
+      .container
+        -if flash.notice
+          .notice= notice
+        = link_to 'ログアウト', logout_path, method: :delete
+        = link_to '質問に答える', new_answer_path
+        - if current_user.admin?
+          = link_to 'ユーザー一覧', admin_users_path
+          = link_to '質問一覧', admin_questions_path
+        = yield
