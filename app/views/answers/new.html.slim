@@ -1,1 +1,7 @@
 h1 回答登録
+
+= link_to '一覧', answers_path
+
+p= @question.body
+
+= render partial: 'form', locals: { answer: @answer, question: @question }

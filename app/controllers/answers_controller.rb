@@ -1,31 +1,26 @@
 # frozen_string_literal: true
 
 class AnswersController < ApplicationController
-  before_action :set_answer, only: %i[edit update destroy]
-
   def index
-    @answer = Answer.all
+    @answers = Answer.all
   end
 
   def new
     @answer = Answer.new
+    @question = Question.find(Question.pluck(:id).sample)
   end
 
   def create
-    @answer = Answer.new(answer_params)
+    @answer = current_user.answers.new(answer_params.merge(question_id: params[:question_id]))
 
     if @answer.save
-      redirect_to admin_questions_path, notice: '質問を登録しました'
+      redirect_to new_answer_path, notice: '登録しました'
     else
-      render :new
+      redirect_to new_answer_path, notice: '登録に失敗しました'
     end
   end
 
   private
-
-  def set_answer
-    @answer = Answer.find(params[:id])
-  end
 
   def answer_params
     params.require(:answer).permit(:body)
