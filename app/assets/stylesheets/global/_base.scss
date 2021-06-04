@@ -1,0 +1,36 @@
+html {
+  font-size: 15px;
+  font-family: verdana, arial, helvetica, sans-serif;
+  color: #333;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+
+  &:hover {
+    color: #ddd;
+  }
+}
+
+b,
+i,
+strong,
+em,
+blockquote,
+p,
+q,
+span,
+figure,
+img,
+h1,
+h2,
+header,
+input,
+a {
+  transition: all 0.2s ease;
+}

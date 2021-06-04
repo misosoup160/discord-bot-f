@@ -1,0 +1,65 @@
+.list-container{
+  margin: 20px 40px;
+  border: 1px solid #eee;
+  border-radius: 2px;
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  
+  &:not(:last-child) {
+    border-bottom: 1px solid #eee;
+  }
+
+  &__user {
+    display: flex;
+    align-items: center;
+    flex: 100;
+  }
+
+  &__icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 1px solid #eee;
+    margin-right: 20px;
+  }
+
+  &__discriminator {
+    color: #bbb;
+  }
+
+  &__body {
+    flex: 100;
+  }
+
+  &__links {
+    display: flex;
+  }
+
+  &__row {
+    color: #bbb;
+    font-size: 0.8rem;
+
+    &:not(:first-child) {
+      margin-top: 4px;
+    }
+  }
+}
+
+.list-item-title {
+  font-size: 1rem;
+  color: #333;
+}
+
+
+.list-item-meta {
+  display: flex;
+
+  &__item {
+    margin-right: 10px;
+  }
+}

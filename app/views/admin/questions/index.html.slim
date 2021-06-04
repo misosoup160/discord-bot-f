@@ -1,15 +1,12 @@
 h1 質問一覧
 
-= link_to '新規登録', new_admin_question_path
+= link_to '新規登録', new_admin_question_path, class: 'btn'
 
-table
-  thead
-    tr
-      th= Question.human_attribute_name(:body)
-      th
-  tbody
-    - @questions.each do |question|
-      tr
-        td= question.body
-        td= link_to '編集', edit_admin_question_path(question)
-        td= link_to '削除', [:admin, question], method: :delete, data: { confirm: '本当によろしいですか？' }
+.list-container
+  - @questions.each do |question|
+    .list-item
+      .list-item__body
+        = question.body
+      .list-item__links
+        = link_to '編集', edit_admin_question_path(question), class: 'btn btn-edit'
+        = link_to '削除', [:admin, question], method: :delete, data: { confirm: '本当によろしいですか？' }, class: 'btn btn-delete'

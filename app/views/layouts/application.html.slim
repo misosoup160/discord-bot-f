@@ -8,21 +8,24 @@ html
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    script src='https://kit.fontawesome.com/5cb8958394.js' crossorigin='anonymous'
   body
     header.header
       .container
-        .header__title
-          | DiscordBotF
+        = link_to 'DiscordBotF', root_path, class: 'header__title'
         .header_link
           .header_link__icon
-          .header_link_name
+            = image_tag current_user.image_url, class: 'header-current-user__icon'
+          .header_link__name
             =current_user.name
+          i.fas.fa-caret-down
     main.main
       .container
         -if flash.notice
           .notice= notice
         = link_to 'ログアウト', logout_path, method: :delete
         = link_to '質問に答える', new_answer_path
+        = link_to 'みんなの回答', answers_path
         - if current_user.admin?
           = link_to 'ユーザー一覧', admin_users_path
           = link_to '質問一覧', admin_questions_path

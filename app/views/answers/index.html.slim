@@ -1,19 +1,23 @@
 h1 みんなの回答一覧
 
-= link_to '新規登録', new_answer_path
+= link_to '新規登録', new_answer_path, class: 'btn'
 
-table
-  thead
-    tr
-      th= User.human_attribute_name(:name)
-      th= User.human_attribute_name(:discriminator)
-      th= Question.human_attribute_name(:body)
-      th= Answer.human_attribute_name(:body)
-      th
-  tbody
-    - @answers.each do |answer|
-      tr
-        td= answer.user.name
-        td= answer.user.discriminator
-        td= answer.question.body
-        td= answer.body
+.list-container
+  - @answers.each do |answer|
+    .list-item
+      .list-item__inner
+        = image_tag answer.user.image_url, class: 'list-item__icon'
+      .lost-item__rows
+        .list-item__row
+          .list-item-title
+            = answer.question.body
+        .list-item__row
+          .list-item-meta
+            .list-item-meta__item
+              = answer.user.name
+              | #
+              = answer.user.discriminator
+            .list-item-meta__item
+              = answer.user.updated_at
+        .list-item__row
+          = truncate(answer.body, length: 60)
