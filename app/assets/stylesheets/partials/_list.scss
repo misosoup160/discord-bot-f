@@ -63,3 +63,9 @@
     margin-right: 10px;
   }
 }
+
+.list-answer-card {
+  &:hover {
+    background-color: #eee;
+  }
+}

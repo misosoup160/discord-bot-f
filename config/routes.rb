@@ -9,5 +9,5 @@ Rails.application.routes.draw do
     resources :questions
   end
 
-  resources :answers, only: %i(index new create)
+  resources :answers, only: %i(index new create show)
 end

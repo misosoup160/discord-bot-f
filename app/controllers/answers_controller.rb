@@ -10,6 +10,10 @@ class AnswersController < ApplicationController
     @question = Question.find(Question.pluck(:id).sample)
   end
 
+  def show
+    @answer = Answer.find(params[:id])
+  end
+
   def create
     @answer = current_user.answers.new(answer_params.merge(question_id: params[:question_id]))
 

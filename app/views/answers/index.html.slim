@@ -4,10 +4,9 @@ h1 みんなの回答一覧
 
 .list-container
   - @answers.each do |answer|
-    .list-item
-      .list-item__inner
-        = image_tag answer.user.image_url, class: 'list-item__icon'
-      .lost-item__rows
+    =link_to answer_path(answer), class: 'list-item list-answer-card'
+      = image_tag answer.user.image_url, class: 'list-item__icon'
+      .list-item__rows
         .list-item__row
           .list-item-title
             = answer.question.body

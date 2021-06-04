@@ -1,0 +1,23 @@
+h1 回答の詳細
+
+= link_to '一覧', answers_path, class: 'btn'
+
+.page-container
+  .page-header
+    = image_tag @answer.user.image_url, class: 'page-header__icon'
+    .page-header__rows
+      .page-header__row
+        .page-header-meta
+          .page-header-meta__item
+            = @answer.user.name
+            | #
+            = @answer.user.discriminator
+          .page-header-meta__item
+            = @answer.user.updated_at
+      .page-header__row
+        h2.page-header-title
+          = @answer.question.body
+  .page-body 
+    = @answer.body
+
+

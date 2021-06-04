@@ -1,0 +1,42 @@
+.page-container {
+  margin: 20px 40px;
+  border: 1px solid #eee;
+  border-radius: 2px;
+}
+
+.page-header {
+  display: flex;
+  padding: 18px;
+  border-bottom: 1px solid #eee;
+
+  &__icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 1px solid #eee;
+    margin-right: 20px;
+  }
+
+}
+
+.page-header-meta {
+  display: flex;
+  margin-bottom: 10px;
+
+  &__item {
+    margin-right: 10px;
+    color: #bbb;
+    font-size: 0.9rem;
+  }
+}
+
+.page-header-title {
+  font-size: 1.4rem;
+  margin: 5px 0;
+}
+
+.page-body {
+  padding: 18px;
+  min-height: 200px;
+}
