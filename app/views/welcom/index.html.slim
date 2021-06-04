@@ -2,6 +2,7 @@ h1 Welcom#index
 p Find me in app/views/welcom/index.html.slim
 - if logged_in?
   = link_to 'ログアウト', logout_path, method: :delete
+  = link_to '質問に答える', new_answer_path
   - if current_user.admin?
     = link_to 'ユーザー一覧', admin_users_path
     = link_to '質問一覧', admin_questions_path
