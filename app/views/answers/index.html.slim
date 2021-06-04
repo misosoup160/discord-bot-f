@@ -1,0 +1,19 @@
+h1 みんなの回答一覧
+
+= link_to '新規登録', new_answer_path
+
+table
+  thead
+    tr
+      th= User.human_attribute_name(:name)
+      th= User.human_attribute_name(:discriminator)
+      th= Question.human_attribute_name(:body)
+      th= Answer.human_attribute_name(:body)
+      th
+  tbody
+    - @answers.each do |answer|
+      tr
+        td= answer.user.name
+        td= answer.user.discriminator
+        td= answer.question.body
+        td= answer.body

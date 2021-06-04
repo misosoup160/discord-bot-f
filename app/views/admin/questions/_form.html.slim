@@ -1,6 +1,6 @@
 - if question.errors.present?
   ul#error_explanation
-    - question.errors.full_massages.each do |message|
+    - question.errors.full_messages.each do |message|
       li= message
 
 = form_with(model: [:admin, question], local:true) do |f|
