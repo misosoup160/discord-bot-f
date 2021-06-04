@@ -1,0 +1,27 @@
+.header {
+  background-color: #eee;
+  height: 60px;
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: inherit;
+}
+
+.header_link {
+  display: flex;
+  align-items: center;
+
+  &__name {
+    margin-right: 6px;
+  }
+}
+
+.header-current-user__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}

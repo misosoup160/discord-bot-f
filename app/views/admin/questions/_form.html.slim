@@ -3,8 +3,9 @@
     - question.errors.full_messages.each do |message|
       li= message
 
-= form_with(model: [:admin, question], local:true) do |f|
-  .field
-    = f.text_field :body, required: 'required'
-  .action
-    = f.submit '登録する'
+.form-container
+  = form_with(model: [:admin, question], local:true) do |f|
+    .form-item
+      = f.text_field :body, required: 'required', class: 'form-item__text'
+    .form-item
+      = f.submit '登録する', class: 'btn'

@@ -1,0 +1,30 @@
+.btn {
+  display: block;
+  width: 120px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  background-color: #bbb;
+  border-radius: 4px;
+  color: white;
+  border: none;
+
+  &:hover {
+    color: white;
+    opacity: 0.8;
+  }
+}
+
+.btn-admin {
+  background-color: tomato;
+}
+
+.btn-edit {
+  margin-right: 10px;
+  width: 80px;
+}
+
+.btn-delete {
+  width: 80px;
+  background-color: tomato;
+}

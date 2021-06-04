@@ -1,22 +1,17 @@
 h1 ユーザー一覧
 
-table
-  thead
-    tr
-      th= User.human_attribute_name(:image_url)
-      th= User.human_attribute_name(:name)
-      th= User.human_attribute_name(:discriminator)
-      th= User.human_attribute_name(:admin)
-      th
-  tbody
-    - @users.each do |user|
-      tr
-        td
-          img src= user.image_url
-        td= user.name
-        td= user.discriminator
-        td= user.admin? ? 'あり' : 'なし'
-        - if user.admin?
-          td= link_to '管理者解除', admin_user_path(user), method: :patch, data: { confirm: '本当によろしいですか？' }
-        - else
-          td= link_to '管理者になる', admin_user_path(user), method: :patch, data: { confirm: '本当によろしいですか？' }
+.list-container
+  - @users.each do |user|
+    .list-item
+      .list-item__user
+        = image_tag user.image_url, class: 'list-item__icon'
+        .list-item__name
+          = user.name
+          span.list-item__discriminator
+            | #
+            = user.discriminator
+      - if user.admin?
+        = link_to '管理者解除', admin_user_path(user), method: :patch, data: { confirm: '本当によろしいですか？' }, class: 'btn btn-admin'
+      - else
+        = link_to '管理者になる', admin_user_path(user), method: :patch, data: { confirm: '本当によろしいですか？' }, class: 'btn'
+      

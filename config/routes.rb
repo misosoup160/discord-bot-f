@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root 'welcom#index'
+  root to: 'answers#new'
+  get 'welcom', to: 'welcom#index', as: 'welcom'
   get '/auth/:provider/callback' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
 
@@ -8,5 +9,5 @@ Rails.application.routes.draw do
     resources :questions
   end
 
-  resources :answers, only: %i(index new create)
+  resources :answers, only: %i(index new create show)
 end

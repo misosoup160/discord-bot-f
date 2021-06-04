@@ -1,0 +1,15 @@
+.form-container {
+  margin: 20px 0;
+}
+
+.form-item {
+  margin-bottom: 10px;
+
+  &__text {
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    padding: 16px;
+    width: 100%;
+    font-size: 1rem;
+  }
+}
