@@ -1,1 +1,1 @@
-bot: discord_bot:start
+bot: rails discord_bot:start
