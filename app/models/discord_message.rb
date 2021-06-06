@@ -4,8 +4,8 @@ class DiscordMessage
   MESSAGE_COUNTS = 3
 
   def send
-    if Answer.count >= MESSAGE_COUNTS
-      answers = Answer.find(Answer.pluck(:id).sample(MESSAGE_COUNTS))
+    if Answer.where(posted: false).count >= MESSAGE_COUNTS
+      answers = Answer.find(Answer.where(posted: false).pluck(:id).sample(MESSAGE_COUNTS))
       post_message(first_message)
       answers.each do |answer|
         answer.update(posted: true) if post_message(answers_message(answer))
