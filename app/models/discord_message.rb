@@ -6,25 +6,30 @@ class DiscordMessage
   def send
     if Answer.count >= MESSAGE_COUNTS
       answers = Answer.find(Answer.pluck(:id).sample(MESSAGE_COUNTS))
-      messages = []
-      messages << first_message
+      post_message(first_message)
       answers.each do |answer|
-        messages.push(set_answers_message(answer))
+        answer.update(posted: true) if post_message(answers_message(answer))
       end
-      messages << end_message
+      post_message(end_message)
     else
-      messages = [ no_answer_message ]
-    end
-
-    messages.each do |message|
-      create_message(message[:content], message[:embet])
+      post_message(no_answer_message)
     end
   end
 
   private
 
-  def create_message(content, embed)
-    Discordrb::API::Channel.create_message('Bot ' + ENV['DISCORD_BOT_TOKEN'], ENV['DISCORD_CHANNEL_ID'], message = content, tts = false, embed = embed, nonce = nil, attachments = nil, allowed_mentions = nil, message_reference = nil)
+  def post_message(post)
+    Discordrb::API::Channel.create_message(
+      "Bot #{ENV['DISCORD_BOT_TOKEN']}",
+      ENV['DISCORD_CHANNEL_ID'],
+      message = post[:content],
+      tts = false,
+      embed = post[:embet],
+      nonce = nil,
+      attachments = nil,
+      allowed_mentions = nil,
+      message_reference = nil
+    )
   end
 
   def create_embet(answer)
@@ -43,7 +48,7 @@ class DiscordMessage
     }
   end
 
-  def set_answers_message(answer)
+  def answers_message(answer)
     {
       content: "<@#{answer.user.uid}>さんに聞きました！",
       embet: create_embet(answer)
@@ -64,7 +69,7 @@ class DiscordMessage
       'わかります！'
     ]
     {
-      content: comment.sample + "\n今日はみんなにこんなことも聞いてみたいな。",
+      content: "#{comment.sample}\n今日はみんなにこんなことも聞いてみたいな。",
       embet: daily_embet
     }
   end

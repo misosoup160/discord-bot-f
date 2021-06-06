@@ -1,0 +1,22 @@
+h1 自分の回答一覧
+
+= link_to '新規登録', new_answer_path, class: 'btn'
+
+.list-container
+  - @answers.each do |answer|
+    =link_to answer_path(answer), class: "list-item list-answer-card #{posted_or_not(answer)}"
+      = image_tag answer.user.image_url, class: 'list-item__icon'
+      .list-item__rows
+        .list-item__row
+          .list-item-title
+            = answer.question.body
+        .list-item__row
+          .list-item-meta
+            .list-item-meta__item
+              = answer.user.name
+              | #
+              = answer.user.discriminator
+            .list-item-meta__item
+              = answer.user.updated_at
+        .list-item__row
+          = truncate(answer.body, length: 60)
