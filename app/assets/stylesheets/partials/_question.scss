@@ -1,0 +1,17 @@
+.question {
+  display: flex;
+  align-items: center;
+}
+
+.question-item {
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 4px;
+  margin: 20px 0;
+  margin-right: 10px;
+  flex: 100;
+}
+
+.btn-skip {
+  width: 100px;
+}
