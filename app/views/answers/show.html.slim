@@ -19,5 +19,7 @@ h1 回答の詳細
           = @answer.question.body
   .page-body 
     = @answer.body
-
+- if !@answer.posted && @answer.user == current_user
+  = link_to '編集', edit_answer_path(@answer), class: 'btn btn-edit'
+  = link_to '削除', answer_path(@answer), method: :delete, data: { confirm: '本当によろしいですか？' }, class: 'btn btn-delete'
 

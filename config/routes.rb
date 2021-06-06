@@ -13,5 +13,5 @@ Rails.application.routes.draw do
     resources :answers, only: %i(index), controller: 'users/answers'
   end
 
-  resources :answers, only: %i(index new create show)
+  resources :answers
 end

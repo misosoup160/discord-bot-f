@@ -1,0 +1,7 @@
+h1 回答編集
+
+= link_to '一覧', user_answers_path(current_user), class: 'btn'
+
+p= @question.body
+
+= render partial: 'form', locals: { answer: @answer, question: @question }
