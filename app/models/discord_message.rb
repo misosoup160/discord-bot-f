@@ -83,9 +83,11 @@ class DiscordMessage
 
   def daily_embet
     question = Question.find(Question.pluck(:id).sample)
+    routes = Rails.application.routes.url_helpers
+    url = routes.url_for(host: "127.0.0.1:3000", controller: :answers, action: :new, question: question.id ,only_path: false)
     {
       title: question.body,
-      description: '質問に回答するには[ここ](http://example.com)にアクセスしてね。過去に投稿されたみんなの回答も見れるよ！'
+      description: "質問に回答するには[ここ](#{url})にアクセスしてね。過去に投稿されたみんなの回答も見れるよ！"
     }
   end
 end
