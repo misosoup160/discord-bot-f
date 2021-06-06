@@ -1,7 +1,5 @@
 h1 自分の回答一覧
 
-= link_to '新規登録', new_answer_path, class: 'btn'
-
 .list-container
   - @answers.each do |answer|
     =link_to answer_path(answer), class: "list-item list-answer-card #{posted_or_not(answer)}"

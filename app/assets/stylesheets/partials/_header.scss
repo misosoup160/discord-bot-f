@@ -1,6 +1,10 @@
 .header {
   background-color: #eee;
   height: 60px;
+
+  &.is-admin-page {
+    background: azure;
+  }
 }
 
 .header .container {
@@ -8,11 +12,15 @@
   justify-content: space-between;
   align-items: center;
   height: inherit;
+  position: relative;
 }
 
 .header_link {
   display: flex;
   align-items: center;
+  &:hover {
+    cursor: pointer;
+  }
 
   &__name {
     margin-right: 6px;
