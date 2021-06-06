@@ -13,6 +13,10 @@
     border-bottom: 1px solid #eee;
   }
 
+  &.is-posted {
+    background-color: azure;
+  }
+
   &__user {
     display: flex;
     align-items: center;
@@ -69,3 +73,4 @@
     background-color: #eee;
   }
 }
+
