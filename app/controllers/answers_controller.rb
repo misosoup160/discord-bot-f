@@ -2,7 +2,7 @@
 
 class AnswersController < ApplicationController
   def index
-    @answers = Answer.all
+    @answers = Answer.where(posted: true)
   end
 
   def new
