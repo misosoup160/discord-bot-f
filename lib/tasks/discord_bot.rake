@@ -7,7 +7,7 @@ namespace :discord_bot do
     bot.run
   end
 
-  desc 'send message to discord guild'  
+  desc 'send message to discord guild'
   task send_messages: :environment do
     DiscordMessage.new.send
   end
