@@ -10,24 +10,29 @@ html
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     script src='https://kit.fontawesome.com/5cb8958394.js' crossorigin='anonymous'
   body
-    header.header
+    header class='header #{admin_page_or_not}'
       .container
         = link_to 'DiscordBotF', root_path, class: 'header__title'
-        .header_link
-          .header_link__icon
-            = image_tag current_user.image_url, class: 'header-current-user__icon'
-          .header_link__name
-            =current_user.name
-          i.fas.fa-caret-down
+        input#nav-input.nav-hidden type="checkbox"
+        label for="nav-input"
+          .header_link
+            .header_link__icon
+              = image_tag current_user.image_url, class: 'header-current-user__icon'
+            .header_link__name
+              = current_user.name
+            i.fas.fa-caret-down
+        .nav-menu
+          ul.nav-menu__items
+            - if current_user.admin?
+              li.nav-menu__item
+                = link_to 'ユーザーの管理', admin_users_path, class: 'nav-menu__item-link'
+              li.nav-menu__item
+                = link_to '質問の管理', admin_questions_path, class: 'nav-menu__item-link'
+            li.nav-menu__item
+              = link_to 'ログアウト', logout_path, method: :delete, class: 'nav-menu__item-link'
     main.main
       .container
+        = render 'application/nav'
         -if flash.notice
           .notice= notice
-        = link_to 'ログアウト', logout_path, method: :delete
-        = link_to '質問に答える', new_answer_path
-        = link_to 'みんなの回答', answers_path
-        = link_to '自分の回答', user_answers_path(current_user)
-        - if current_user.admin?
-          = link_to 'ユーザー一覧', admin_users_path
-          = link_to '質問一覧', admin_questions_path
         = yield

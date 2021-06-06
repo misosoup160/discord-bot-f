@@ -40,3 +40,11 @@
   padding: 18px;
   min-height: 200px;
 }
+
+.page-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px;
+  border-top: 1px solid #eee;
+}

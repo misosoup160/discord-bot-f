@@ -1,0 +1,11 @@
+.page-title {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__text {
+    font-size: 1.6rem;
+  }
+}
+  

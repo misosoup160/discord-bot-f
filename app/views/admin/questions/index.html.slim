@@ -1,6 +1,6 @@
-h1 質問一覧
-
-= link_to '新規登録', new_admin_question_path, class: 'btn'
+.page-title
+  h1.page-title__text 質問一覧
+  = link_to '新規登録', new_admin_question_path, class: 'btn'
 
 .list-container
   - @questions.each do |question|
