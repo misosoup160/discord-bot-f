@@ -15,4 +15,4 @@
         = link_to '管理者解除', admin_user_path(user), method: :patch, data: { confirm: '本当によろしいですか？' }, class: 'btn btn-admin'
       - else
         = link_to '管理者になる', admin_user_path(user), method: :patch, data: { confirm: '本当によろしいですか？' }, class: 'btn'
-      
+= paginate @users

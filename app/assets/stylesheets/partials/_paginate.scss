@@ -1,0 +1,23 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #bbb;
+  
+  & span {
+    display: block;
+    padding: 0 10px;
+
+    &.current {
+      color: tomato;
+    }
+
+    & a {
+      color: #bbb;
+      &:hover {
+        color: #333;
+      }
+    }
+  }
+}
