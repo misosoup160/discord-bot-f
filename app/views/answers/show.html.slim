@@ -10,11 +10,9 @@
       .page-header__row
         .page-header-meta
           .page-header-meta__item
-            = @answer.user.name
-            | #
-            = @answer.user.discriminator
+            | #{@answer.user.name}##{@answer.user.discriminator}
           .page-header-meta__item
-            = @answer.user.updated_at
+            = l @answer.user.created_at, format: :date_only
       .page-header__row
         h2.page-header-title
           = @answer.question.body

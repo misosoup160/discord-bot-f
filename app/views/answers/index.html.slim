@@ -12,10 +12,8 @@
         .list-item__row
           .list-item-meta
             .list-item-meta__item
-              = answer.user.name
-              | #
-              = answer.user.discriminator
+              | #{answer.user.name}##{answer.user.discriminator}
             .list-item-meta__item
-              = answer.user.updated_at
+              = l answer.user.created_at, format: :date_only
         .list-item__row
           = truncate(answer.body, length: 60)

@@ -9,5 +9,8 @@
     .form-item
       = f.text_area :body, rows: '10', required: 'required', class: 'form-item__text'
     .form-item
-      = f.submit '登録する', class: 'btn'
+      - if answer.new_record?
+        = f.submit '登録する', class: 'btn'
+      - else
+        = f.submit '内容変更', class: 'btn'
 
