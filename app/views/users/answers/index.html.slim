@@ -17,3 +17,4 @@
               = l answer.user.created_at, format: :date_only
         .list-item__row
           = truncate(answer.body, length: 60)
+= paginate @answers
