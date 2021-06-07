@@ -24,11 +24,7 @@ class DiscordMessage
       ENV['DISCORD_CHANNEL_ID'],
       message = post[:content],
       tts = false,
-      embed = post[:embet],
-      nonce = nil,
-      attachments = nil,
-      allowed_mentions = nil,
-      message_reference = nil
+      embed = post[:embet]
     )
   end
 
