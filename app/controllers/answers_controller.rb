@@ -7,11 +7,11 @@ class AnswersController < ApplicationController
 
   def new
     @answer = Answer.new
-    if params[:question]
-      @question = Question.find(params[:question])
-    else
-      @question = Question.find(Question.pluck(:id).sample)
-    end
+    @question = if params[:question]
+                  Question.find(params[:question])
+                else
+                  Question.find(Question.pluck(:id).sample)
+                end
   end
 
   def show
