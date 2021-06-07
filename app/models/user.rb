@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  include ActionView::Helpers::AssetUrlHelper
+
   has_many :answers, dependent: :destroy
 
   def self.find_or_create_from_auth_hash!(auth_hash)
@@ -18,5 +20,9 @@ class User < ApplicationRecord
       user.discriminator = discriminator
       user.admin = true if owner_id == uid
     end
+  end
+
+  def avatar_url
+    avatar? ? avatar : image_url('/images/default_avatar.png', host: 'http://127.0.0.1:3000')
   end
 end
