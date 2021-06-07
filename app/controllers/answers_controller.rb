@@ -2,7 +2,7 @@
 
 class AnswersController < ApplicationController
   def index
-    @answers = Answer.where(posted: true)
+    @answers = Answer.where(posted: true).order(created_at: :desc)
   end
 
   def new
