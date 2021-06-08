@@ -34,7 +34,7 @@ html
       .container
         = render 'application/nav'
         - if flash.notice
-          .notice= notice
+          .flash-message.notice= notice
         - if flash.alert
-          .alert= alert
+          .flash-message.alert= alert
         = yield
