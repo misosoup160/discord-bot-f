@@ -3,16 +3,15 @@
 
 .list-container
   - @users.each do |user|
-    .list-item
+    .list-item.align-center
       .list-item__user
-        = image_tag user.image_url, class: 'list-item__icon'
+        = image_tag user.avatar_url, class: 'list-item__icon'
         .list-item__name
           = user.name
           span.list-item__discriminator
-            | #
-            = user.discriminator
+            | ##{user.discriminator}
       - if user.admin?
         = link_to '管理者解除', admin_user_path(user), method: :patch, data: { confirm: '本当によろしいですか？' }, class: 'btn btn-admin'
       - else
-        = link_to '管理者になる', admin_user_path(user), method: :patch, data: { confirm: '本当によろしいですか？' }, class: 'btn'
+        = link_to '管理者にする', admin_user_path(user), method: :patch, data: { confirm: '本当によろしいですか？' }, class: 'btn'
 = paginate @users

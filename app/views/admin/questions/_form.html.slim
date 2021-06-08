@@ -1,7 +1,8 @@
 - if question.errors.present?
-  ul#error_explanation
-    - question.errors.full_messages.each do |message|
-      li= message
+  .error-message.alert
+    ul
+      - question.errors.full_messages.each do |message|
+        li= message
 
 .form-container
   = form_with(model: [:admin, question], local:true) do |f|

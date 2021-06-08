@@ -1,16 +1,19 @@
 .list-container{
-  margin: 20px 40px;
+  margin: 20px 0px;
   border: 1px solid #eee;
   border-radius: 2px;
 }
 
 .list-item {
   display: flex;
-  align-items: center;
-  padding: 10px;
+  padding: 12px 14px;
   
   &:not(:last-child) {
     border-bottom: 1px solid #eee;
+  }
+
+  &.align-center {
+    align-items: center;
   }
 
   &.is-posted {
@@ -28,7 +31,7 @@
     height: 50px;
     border-radius: 50%;
     background-color: #fff;
-    border: 1px solid #eee;
+    // border: 1px solid #eee;
     margin-right: 20px;
   }
 
@@ -38,27 +41,30 @@
 
   &__body {
     flex: 100;
+    line-height: 1.4;
   }
 
   &__links {
     display: flex;
+    margin-left: 10px;
   }
 
   &__row {
     color: #bbb;
     font-size: 0.8rem;
+    line-height: 1.4;
 
     &:not(:first-child) {
-      margin-top: 4px;
+      margin-top: 6px;
     }
   }
 }
 
 .list-item-title {
   font-size: 1rem;
+  // font-weight: bold;
   color: #333;
 }
-
 
 .list-item-meta {
   display: flex;

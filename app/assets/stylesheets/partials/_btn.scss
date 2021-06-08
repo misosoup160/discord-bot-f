@@ -19,12 +19,16 @@
   background-color: tomato;
 }
 
+.list-item__links {
+  & .btn {
+    width: 80px;
+  }
+}
+
 .btn-edit {
   margin-right: 10px;
-  // width: 80px;
 }
 
 .btn-delete {
-  // width: 80px;
   background-color: tomato;
 }

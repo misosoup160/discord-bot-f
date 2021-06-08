@@ -11,5 +11,11 @@
     padding: 16px;
     width: 100%;
     font-size: 1rem;
+    line-height: 1.4;
+    color: #333;
+    outline: none;
+    &:focus {
+      box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+    }
   }
 }

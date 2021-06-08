@@ -5,7 +5,7 @@
 
 .page-container
   .page-header
-    = image_tag @answer.user.image_url, class: 'page-header__icon'
+    = image_tag @answer.user.avatar_url, class: 'page-header__icon'
     .page-header__rows
       .page-header__row
         .page-header-meta
@@ -17,7 +17,7 @@
         h2.page-header-title
           = @answer.question.body
   .page-body 
-    = @answer.body
+    = simple_format h @answer.body
   - if !@answer.posted && @answer.user == current_user
     .page-link
       = link_to '編集', edit_answer_path(@answer), class: 'btn btn-edit'

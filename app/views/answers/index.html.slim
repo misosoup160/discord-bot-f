@@ -4,7 +4,7 @@
 .list-container
   - @answers.each do |answer|
     =link_to answer_path(answer), class: 'list-item list-answer-card'
-      = image_tag answer.user.image_url, class: 'list-item__icon'
+      = image_tag answer.user.avatar_url, class: 'list-item__icon'
       .list-item__rows
         .list-item__row
           .list-item-title
@@ -16,5 +16,5 @@
             .list-item-meta__item
               = l answer.user.created_at, format: :date_only
         .list-item__row
-          = truncate(answer.body, length: 60)
+          = truncate(answer.body, length: 80)
 = paginate @answers

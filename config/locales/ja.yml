@@ -16,3 +16,17 @@ ja:
       time_only: "%H:%M"
       date_only: "%Y年%m月%d日(%a)"
       date_and_time: "%m月%d日%H:%M"
+  activerecord:
+    models:
+      answer: 回答
+      question: 質問
+      user: ユーザー
+    attributes:
+      user:
+        name: 名前
+        avatar: ユーザーアイコン
+      question:
+        body: 質問内容
+      answer:
+        body: 回答内容
+

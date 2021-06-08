@@ -17,7 +17,7 @@ class Admin::QuestionsController < ApplicationController
     @question = Question.new(question_params)
 
     if @question.save
-      redirect_to admin_questions_path, notice: '質問を登録しました'
+      redirect_to admin_questions_path, notice: '新しい質問を登録しました。'
     else
       render :new
     end
@@ -25,7 +25,7 @@ class Admin::QuestionsController < ApplicationController
 
   def update
     if @question.update(question_params)
-      redirect_to admin_questions_path, notice: '質問を登録しました'
+      redirect_to admin_questions_path, notice: '質問の内容を更新しました。'
     else
       render :edit
     end
@@ -33,7 +33,7 @@ class Admin::QuestionsController < ApplicationController
 
   def destroy
     @question.destroy
-    redirect_to admin_questions_path, notice: '質問を削除しました'
+    redirect_to admin_questions_path, notice: '質問を削除しました。'
   end
 
   private
