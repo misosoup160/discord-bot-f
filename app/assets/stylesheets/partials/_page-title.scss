@@ -1,3 +1,9 @@
+.is-admin-page {
+  & .page-title__text {
+    color: $color3;
+  }
+}
+
 .page-title {
   margin-top: 20px;
   display: flex;

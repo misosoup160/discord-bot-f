@@ -1,20 +1,21 @@
 .page-container {
   margin: 20px 40px;
-  border: 1px solid #eee;
+  border: 1px solid $color3;
   border-radius: 2px;
+  background: $white
 }
 
 .page-header {
   display: flex;
-  padding: 18px;
-  border-bottom: 1px solid #eee;
+  padding: 18px 20px;
+  border-bottom: 3px solid $color3;
 
   &__icon {
     width: 70px;
     height: 70px;
     border-radius: 50%;
     background-color: #fff;
-    border: 1px solid #eee;
+    // border: 1px solid #eee;
     margin-right: 20px;
   }
 
@@ -26,7 +27,7 @@
 
   &__item {
     margin-right: 10px;
-    color: #bbb;
+    color: $color5;
     font-size: 0.9rem;
   }
 }
@@ -34,11 +35,15 @@
 .page-header-title {
   font-size: 1.4rem;
   margin: 5px 0;
+  line-height: 1.4;
 }
 
 .page-body {
-  padding: 18px;
+  padding: 20px;
   min-height: 200px;
+  & p {
+    line-height: 1.5;
+  }
 }
 
 .page-link {
@@ -46,5 +51,5 @@
   align-items: center;
   justify-content: space-around;
   padding: 10px;
-  border-top: 1px solid #eee;
+  border-top: 3px solid $color3;
 }

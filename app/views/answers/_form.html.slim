@@ -8,9 +8,9 @@
     =  hidden_field_tag :question_id, question.id
     .form-item
       = f.text_area :body, rows: '10', required: 'required', class: 'form-item__text'
-    .form-item
+    .form-item.submit
       - if answer.new_record?
-        = f.submit '登録する', class: 'btn'
+        = f.submit '登録する', class: 'btn btn-submit'
       - else
-        = f.submit '内容変更', class: 'btn'
+        = f.submit '内容変更', class: 'btn btn-submit'
 

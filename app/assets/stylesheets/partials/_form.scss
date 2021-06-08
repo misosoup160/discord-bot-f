@@ -14,8 +14,14 @@
     line-height: 1.4;
     color: #333;
     outline: none;
+    margin-bottom: 20px;
     &:focus {
-      box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+      border: 1px solid $color2;
     }
+  }
+
+  &.submit {
+    display: flex;
+    justify-content: center;
   }
 }

@@ -1,10 +1,12 @@
 // @import "normalize.scss";
 // @import "variables.scss";
 // @import "mixins.scss";
+@import "global/normalize.scss";
+@import "global/variables.scss";
 @import "global/*";
 @import "partials/*";
 
-.container {
+.main .container {
   max-width: 800px;
   margin: 0 auto;
   padding: 0 20px;

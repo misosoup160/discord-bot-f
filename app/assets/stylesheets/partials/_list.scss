@@ -1,15 +1,14 @@
-.list-container{
+.list-container {
   margin: 20px 0px;
-  border: 1px solid #eee;
-  border-radius: 2px;
 }
 
 .list-item {
   display: flex;
   padding: 12px 14px;
+  background: $white;
   
   &:not(:last-child) {
-    border-bottom: 1px solid #eee;
+    border-bottom: 3px solid $color3;
   }
 
   &.align-center {
@@ -17,7 +16,7 @@
   }
 
   &.is-posted {
-    background-color: azure;
+    // background-color: $color6;
   }
 
   &__user {
@@ -31,7 +30,6 @@
     height: 50px;
     border-radius: 50%;
     background-color: #fff;
-    // border: 1px solid #eee;
     margin-right: 20px;
   }
 
@@ -50,7 +48,7 @@
   }
 
   &__row {
-    color: #bbb;
+    color: $color4;
     font-size: 0.8rem;
     line-height: 1.4;
 
@@ -62,8 +60,12 @@
 
 .list-item-title {
   font-size: 1rem;
-  // font-weight: bold;
-  color: #333;
+  font-weight: bold;
+  padding-bottom: 2px;
+  color: $color1;
+  &:hover {
+    border-bottom: 1px dashed $color1;
+  }
 }
 
 .list-item-meta {
@@ -74,9 +76,8 @@
   }
 }
 
-.list-answer-card {
-  &:hover {
-    background-color: #eee;
+.is-admin-page {
+  & .list-item:not(:last-child) {
+    border-bottom: 3px solid $color1;
   }
 }
-

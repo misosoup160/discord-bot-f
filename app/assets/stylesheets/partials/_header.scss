@@ -1,9 +1,20 @@
+.is-admin-page .header {
+  background: $color3;
+}
+
 .header {
-  background-color: #eee;
+  background-color: $color1;
   height: 60px;
 
-  &.is-admin-page {
-    background: azure;
+  &__title {
+    font-family: $font-family-logo;
+    font-size: 1.8rem;
+    padding-top: 10px;
+    color: $color2;
+    margin-right: 10px;
+    &:hover {
+      color: $color2;
+    }
   }
 }
 
@@ -13,17 +24,51 @@
   align-items: center;
   height: inherit;
   position: relative;
+  padding: 0 40px;
 }
 
-.header_link {
+.is-admin-page {
+  & .header-nav__item {
+    color: $color1;
+    &:hover {
+      background: $color1;
+      color: $color3;
+    }
+  }
+  & .header-link i {
+    color: $color1;
+  }
+}
+.header-nav {
+  display: flex;
+  align-items: center;
+  &__items {
+    display: flex;
+    align-items: center;
+  }
+  &__item {
+    color: $color3;
+    padding: 0 14px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 15px;
+    margin-left: 10px;
+    &:hover {
+      background: $color3;
+      color: $color1;
+    }
+  }
+}
+
+.header-link {
   display: flex;
   align-items: center;
   &:hover {
     cursor: pointer;
   }
 
-  &__name {
-    margin-right: 6px;
+  & i {
+    color: $color3;
   }
 }
 
