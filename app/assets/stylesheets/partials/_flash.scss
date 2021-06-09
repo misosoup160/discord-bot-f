@@ -9,11 +9,12 @@
 }
 
 .notice {
-  border: 1px solid plum;
-  color: plum;
-
+  border: 1px solid $color2;
+  color: $color2;
+  background: lighten($color2, 27%);
 }
 .alert {
-  border: 1px solid tomato;
-  color: tomato;
+  border: 1px solid $color6;
+  color: $color6;
+  background: lighten($color6, 35%);
 }
