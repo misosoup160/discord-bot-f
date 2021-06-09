@@ -59,6 +59,19 @@
   }
 }
 
+@media screen and (max-width:768px) {
+  .list-item {
+    padding: 10px;
+    &__icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #fff;
+      margin-right: 10px;
+    }
+  }
+}
+
 .list-item-title {
   font-size: 1rem;
   font-weight: bold;

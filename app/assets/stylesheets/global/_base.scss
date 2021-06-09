@@ -4,6 +4,12 @@ html {
   color: $text-color;
 }
 
+@media screen and (max-width:768px) {
+  html {
+    font-size: 13px;
+  }
+}
+
 body {
   background: $color3;
 

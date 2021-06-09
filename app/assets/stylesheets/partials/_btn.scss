@@ -35,6 +35,7 @@
 
 .btn-submit {
   width: 180px; 
+  cursor: pointer;
 }
 
 .btn-skip {
@@ -45,3 +46,39 @@
   margin-left: 10px;
 }
 
+.btn-icon {
+  margin-left: 10px;
+  & i {
+    display: block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 1.4rem;
+    border: 1px solid $color2;
+    border-radius: 50%;
+    &.fa-trash-alt {
+      color: $color1;
+      border: 1px solid $color1;
+    }
+  }
+  &:hover i {
+    background: $color2;
+    color: $color3;
+    &.fa-trash-alt {
+      background: $color1;
+      color: $color3;
+    }
+  }
+}
+
+@media screen and (max-width:768px) {
+  .btn-admin-user {
+    width: 100px;
+    height: 35px;
+    line-height: 35px;
+  }
+  .btn-icon {
+    margin-left: 4px;
+  }
+}

@@ -7,7 +7,12 @@
     .list-item.align-center
       .list-item__body
         = question.body
+      / .list-item__links
+      /   = link_to '編集', edit_admin_question_path(question), class: 'btn btn-edit'
+      /   = link_to '削除', [:admin, question], method: :delete, data: { confirm: '本当によろしいですか？' }, class: 'btn btn-delete'
       .list-item__links
-        = link_to '編集', edit_admin_question_path(question), class: 'btn btn-edit'
-        = link_to '削除', [:admin, question], method: :delete, data: { confirm: '本当によろしいですか？' }, class: 'btn btn-delete'
+        = link_to edit_admin_question_path(question), class: 'btn-icon'
+          i.fas.fa-edit
+        = link_to [:admin, question], method: :delete, data: { confirm: '本当によろしいですか？' }, class: 'btn-icon'
+          i.fas.fa-trash-alt
 = paginate @questions

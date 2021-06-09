@@ -60,6 +60,16 @@
   }
 }
 
+@media screen and (max-width:768px) {
+  .header .container {
+    padding: 0 10px;
+  }
+
+  .header-nav__items {
+    display: none;
+  }
+}
+
 .header-link {
   display: flex;
   align-items: center;

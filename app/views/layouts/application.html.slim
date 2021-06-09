@@ -28,6 +28,12 @@ html
             i.fas.fa-caret-down
         .nav-menu
           ul.nav-menu__items
+            li.nav-menu__item.display-mobile
+              = link_to '質問に答える', new_answer_path, class: 'nav-menu__item-link'
+            li.nav-menu__item.display-mobile
+              = link_to 'みんなの回答', answers_path, class: 'nav-menu__item-link'
+            li.nav-menu__item.display-mobile
+              = link_to '自分の回答', user_answers_path(current_user), class: 'nav-menu__item-link'
             - if current_user.admin?
               li.nav-menu__item
                 = link_to 'ユーザーの管理', admin_users_path, class: 'nav-menu__item-link'
