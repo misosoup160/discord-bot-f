@@ -1,13 +1,39 @@
 // @import "normalize.scss";
 // @import "variables.scss";
 // @import "mixins.scss";
+@import "global/normalize.scss";
+@import "global/variables.scss";
 @import "global/*";
 @import "partials/*";
 
-.container {
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main .container {
   max-width: 800px;
   margin: 0 auto;
   padding: 0 20px;
+}
+@media screen and (max-width:768px) {
+  .main .container {
+    padding: 0 10px;
+  }
+}
+
+.main {
+  padding: 20px 0 40px;
+  flex: 1;
+}
+
+.footer {
+  padding: 20px 0;
+  text-align: center;
+  color: $color5;
+  border-top: 1px solid $color5;
+  height: 60px;
 }
 
 

@@ -3,20 +3,40 @@
   align-items: center;
   justify-content: center;
   font-size: 1.2rem;
-  color: #bbb;
+  color: $color1;
+  overflow-x: auto;
   
   & span {
     display: block;
-    padding: 0 10px;
+    margin: 0 4px;
 
     &.current {
-      color: tomato;
+      padding: 4px 8px;
+      background: $color2;
+      color: $white;
+      border-radius: 2px;
     }
 
     & a {
-      color: #bbb;
+      display: block;
+      padding: 4px 8px;
+      color: $color1;
+      border-radius: 2px;
+
       &:hover {
-        color: #333;
+        background: lighten($color5, 10%);
+      }
+    }
+  }
+}
+
+.is-admin-page {
+  & .pagination {
+    color: $color3;
+    & span a {
+      color: $color3;
+      &:hover {
+        background: $color4;
       }
     }
   }

@@ -1,7 +1,21 @@
 html {
   font-size: 15px;
   font-family: verdana, arial, helvetica, sans-serif;
-  color: #333;
+  color: $text-color;
+}
+
+@media screen and (max-width:768px) {
+  html {
+    font-size: 13px;
+  }
+}
+
+body {
+  background: $color3;
+
+  &.is-admin-page {
+    background: $color1;
+  }
 }
 
 *, *::before, *::after {
@@ -10,11 +24,11 @@ html {
 
 a {
   text-decoration: none;
-  color: #000;
+  color: $color2;
 
-  &:hover {
-    color: #ddd;
-  }
+  // &:hover {
+  //   opacity: 0.4;
+  // }
 }
 
 b,

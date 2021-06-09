@@ -3,12 +3,11 @@
 
 .list-container
   - @answers.each do |answer|
-    =link_to answer_path(answer), class: "list-item list-answer-card #{posted_or_not(answer)}"
+    div class="list-item #{posted_or_not(answer)}"
       = image_tag answer.user.avatar_url, class: 'list-item__icon'
       .list-item__rows
         .list-item__row
-          .list-item-title
-            = answer.question.body
+          = link_to answer.question.body, answer_path(answer), class: 'list-item-title #{posted_or_not(answer)}"'
         .list-item__row
           .list-item-meta
             .list-item-meta__item
@@ -17,4 +16,7 @@
               = l answer.user.created_at, format: :date_only
         .list-item__row
           = truncate(answer.body, length: 80)
+      - if answer.posted?
+        .stamp
+          | 投稿済み
 = paginate @answers

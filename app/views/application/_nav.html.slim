@@ -1,9 +1,0 @@
-.nav-bar
-  = link_to '質問に答える', new_answer_path, class: "nav-item"
-  = link_to 'みんなの回答', answers_path, class: 'nav-item'
-  = link_to '自分の回答', user_answers_path(current_user), class: 'nav-item'
-
-/ - if current_user.admin?
-/   = link_to 'ユーザー一覧', admin_users_path
-/   = link_to '質問一覧', admin_questions_path
-/ = link_to 'ログアウト', logout_path, method: :delete
