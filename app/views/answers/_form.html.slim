@@ -1,7 +1,8 @@
 - if answer.errors.present?
-  ul#error_explanation
-    - answer.errors.full_messages.each do |message|
-      li= message
+  .error-message.alert
+    ul
+      - answer.errors.full_messages.each do |message|
+        li= message
 
 .form-container
   = form_with(model: answer, local:true) do |f|

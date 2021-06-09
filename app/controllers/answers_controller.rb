@@ -25,7 +25,7 @@ class AnswersController < ApplicationController
 
   def create
     @answer = current_user.answers.new(answer_params.merge(question_id: params[:question_id]))
-
+    @question = Question.find(params[:question_id])
     if @answer.save
       redirect_to user_answers_path(current_user), notice: '回答を登録しました。'
     else
@@ -35,6 +35,7 @@ class AnswersController < ApplicationController
 
   def update
     @answer = current_user.answers.find(params[:id])
+    @question = Question.find(params[:question_id])
     if @answer.update(answer_params.merge(question_id: params[:question_id]))
       redirect_to @answer, notice: '回答の内容を更新しました。'
     else
