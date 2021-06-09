@@ -3,7 +3,7 @@
 
 .list-container
   - @answers.each do |answer|
-    .list-item
+    div class="list-item #{posted_or_not(answer)}"
       = image_tag answer.user.avatar_url, class: 'list-item__icon'
       .list-item__rows
         .list-item__row
@@ -16,4 +16,7 @@
               = l answer.user.created_at, format: :date_only
         .list-item__row
           = truncate(answer.body, length: 80)
+      - if answer.posted?
+        .stamp
+          | 投稿済み
 = paginate @answers
