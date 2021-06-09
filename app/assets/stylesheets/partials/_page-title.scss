@@ -1,11 +1,12 @@
 .is-admin-page {
   & .page-title__text {
     color: $color3;
+    margin: 0;
   }
 }
 
 .page-title {
-  margin: 10px 0;
+  margin-bottom: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;

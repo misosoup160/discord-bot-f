@@ -6,10 +6,29 @@
 @import "global/*";
 @import "partials/*";
 
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 .main .container {
   max-width: 800px;
   margin: 0 auto;
   padding: 0 20px;
+}
+
+.main {
+  padding: 40px 0;
+  flex: 1;
+}
+
+.footer {
+  padding: 20px 0;
+  text-align: center;
+  color: $color5;
+  border-top: 1px solid $color5;
+  height: 60px;
 }
 
 
