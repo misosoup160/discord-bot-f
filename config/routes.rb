@@ -14,5 +14,6 @@ Rails.application.routes.draw do
     resources :answers, only: %i(index), controller: 'users/answers'
   end
 
+  get 'answers/search' => 'answers#search'
   resources :answers
 end

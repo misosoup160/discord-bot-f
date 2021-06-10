@@ -35,6 +35,6 @@ class User < ApplicationRecord
       where("concat_ws('#', name, discriminator) like ?", "%#{keyword}%")
     else
       User.all
-    end 
+    end
   end
 end
