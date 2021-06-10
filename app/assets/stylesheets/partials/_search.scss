@@ -1,7 +1,7 @@
 .search-form {
   & form {
-    margin: 0 auto;
-    width: 300px;
+    margin: 0 auto 14px;
+    max-width: 300px;
     height: 40px;
     border: 1px solid $color3;
     background: $color1;
@@ -27,5 +27,17 @@
     color: $color1;
     border-radius: 50%;
     cursor: pointer;
+  }
+}
+
+@media screen and (max-width:768px) {
+  .search-form {
+    & form {
+      height: 38px;
+    }
+    & .btn-search {
+      width: 32px;
+      height: 32px;
+    }
   }
 }
