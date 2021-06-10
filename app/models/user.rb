@@ -29,4 +29,12 @@ class User < ApplicationRecord
   def avatar_url
     avatar? ? avatar : image_url('/images/default_avatar.png', host: 'http://127.0.0.1:3000')
   end
+
+  def self.search(keyword)
+    if keyword
+      where("concat_ws('#', name, discriminator) like ?", "%#{keyword}%")
+    else
+      User.all
+    end 
+  end
 end

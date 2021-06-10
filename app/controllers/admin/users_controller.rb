@@ -16,6 +16,12 @@ class Admin::UsersController < ApplicationController
     end
   end
 
+  def search
+    @users = User.search(params[:keyword]).order(created_at: :desc).page(params[:page])
+    @keyword = params[:keyword]
+    render :index
+  end
+
   private
 
   def require_admin
