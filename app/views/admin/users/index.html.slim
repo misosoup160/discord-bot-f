@@ -1,21 +1,28 @@
 .page-title
   h1.page-title__text ユーザー一覧
 .search-form
-  = form_with url: admin_serch_path, method: :get, local: true do |f|
+  = form_with url: admin_users_search_path, method: :get, local: true do |f|
     = f.text_field :keyword, value: @keyword,  autocomplete: 'off', class: 'search-form__text'
     button.btn-search(type='submit')
       i.fas.fa-search
-.list-container
-  - @users.each do |user|
-    .list-item.align-center
-      .list-item__user
-        = image_tag user.avatar_url, class: 'list-item__icon'
-        .list-item__name
-          = user.name
-          span.list-item__discriminator
-            | ##{user.discriminator}
-      - if user.admin?
-        = link_to '管理者解除', admin_user_path(user), method: :patch, data: { confirm: '本当によろしいですか？' }, class: 'btn btn-admin-user'
-      - else
-        = link_to '管理者にする', admin_user_path(user), method: :patch, data: { confirm: '本当によろしいですか？' }, class: 'btn btn-admin-user btn-user'
+- if @users.size.positive?
+  .list-container
+    - @users.each do |user|
+      .list-item.align-center
+        .list-item__user
+          = image_tag user.avatar_url, class: 'list-item__icon'
+          .list-item__name
+            = user.name
+            span.list-item__discriminator
+              | ##{user.discriminator}
+        - if user.admin?
+          = link_to '管理者解除', admin_user_path(user), method: :patch, data: { confirm: '本当によろしいですか？' }, class: 'btn btn-admin-user'
+        - else
+          = link_to '管理者にする', admin_user_path(user), method: :patch, data: { confirm: '本当によろしいですか？' }, class: 'btn btn-admin-user btn-user'
+- else
+  .empty-message
+    / i.fas.fa-poo
+    i.far.fa-frown
+    p
+      | '#{params[:keyword]}'に一致する情報は見つかりませんでした。
 = paginate @users

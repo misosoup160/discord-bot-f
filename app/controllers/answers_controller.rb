@@ -49,6 +49,12 @@ class AnswersController < ApplicationController
     redirect_to user_answers_path(current_user), notice: '回答を削除しました。'
   end
 
+  def search
+    @answers = Answer.search(params[:keyword]).where(posted: true).order(created_at: :desc).page(params[:page])
+    @keyword = params[:keyword]
+    render :index
+  end
+
   private
 
   def answer_params

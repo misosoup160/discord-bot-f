@@ -16,13 +16,13 @@ class User < ApplicationRecord
 
     # サーバーメンバーではない場合リクエストに失敗してログインできない
     menber = Discordrb::API::Server.resolve_member("Bot #{ENV['DISCORD_BOT_TOKEN']}", ENV['DISCORD_SERVER_ID'], uid)
-    if menber
-      User.find_or_create_by!(provider: provider, uid: uid) do |user|
-        user.name = name
-        user.image_url = image_url
-        user.discriminator = discriminator
-        user.admin = true if owner_id == uid
-      end
+    return unless menber
+
+    User.find_or_create_by!(provider: provider, uid: uid) do |user|
+      user.name = name
+      user.image_url = image_url
+      user.discriminator = discriminator
+      user.admin = true if owner_id == uid
     end
   end
 
@@ -35,6 +35,6 @@ class User < ApplicationRecord
       where("concat_ws('#', name, discriminator) like ?", "%#{keyword}%")
     else
       User.all
-    end 
+    end
   end
 end

@@ -7,12 +7,13 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users, only: %i(index update)
     resources :questions
-    get 'serch' => 'users#search'
+    get 'users/search' => 'users#search'
   end
 
   resources :users, only: %i() do
     resources :answers, only: %i(index), controller: 'users/answers'
   end
 
+  get 'answers/search' => 'answers#search'
   resources :answers
 end
