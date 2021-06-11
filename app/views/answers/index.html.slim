@@ -22,6 +22,9 @@
           .list-item__row
             = truncate(answer.body, length: 80)
 - else
-  p
-    | '#{params[:keyword]}'に一致する情報は見つかりませんでした。
+  .empty-message
+    / i.fas.fa-poo
+    i.far.fa-frown
+    p
+      | '#{params[:keyword]}'に一致する情報は見つかりませんでした。
 = paginate @answers
