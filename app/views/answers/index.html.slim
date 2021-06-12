@@ -18,7 +18,7 @@
               .list-item-meta__item
                 | #{answer.user.name}##{answer.user.discriminator}
               .list-item-meta__item
-                = l answer.user.created_at, format: :date_only
+                = l answer.user.created_at.to_date, format: :long
           .list-item__row
             = truncate(answer.body, length: 80)
 - elsif params[:keyword]
