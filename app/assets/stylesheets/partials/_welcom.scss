@@ -1,0 +1,53 @@
+.welcom {
+  text-align: center;
+  margin-top: 50px;
+  color: $color1;
+  &__icon {
+    margin-bottom: 20px;
+    position: relative;
+    & .fa-discord {
+      position: absolute;
+      font-size: 3rem;
+      color: $color2;
+      top: -15px;
+      left: calc(50% - 75px);
+    }
+    & .fa-desktop {
+      font-size: 5rem;
+    }
+  }
+  &__title {
+    font-family: $font-family-logo;
+    & h1 {
+      font-size: 3.5rem;
+      letter-spacing: 0.2rem;
+      margin: 0;
+    }
+    & span {
+      color: $color2;
+      font-size: 3.8rem;
+      padding-left: 3px;
+    }
+  }
+  &__description {
+    margin-top: -20px;
+    margin-bottom: 30px;
+    line-height: 1.5;
+    font-size: 1.2rem;
+    & .gray {
+      font-size: 0.8rem;
+    }
+  }
+}
+.login-btn {
+  margin: 0 auto;
+  width: 150px;
+}
+
+@media screen and (min-width:768px) {
+  .welcom__icon {
+    & .fa-discord {
+      left: calc(50% - 85px);
+    }
+  }
+}

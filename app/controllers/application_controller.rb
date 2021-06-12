@@ -15,6 +15,7 @@ class ApplicationController < ActionController::Base
   end
 
   def login_required
+    session[:return_to] = request.url
     redirect_to welcom_path unless current_user
   end
 end

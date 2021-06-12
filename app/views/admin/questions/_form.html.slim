@@ -7,7 +7,7 @@
 .form-container
   = form_with(model: [:admin, question], local:true) do |f|
     .form-item
-      = f.text_field :body, required: 'required', class: 'form-item__text'
+      = f.text_area :body, rows: 3, required: 'required', class: 'form-item__text'
     .form-item.submit
       - if question.new_record?
         = f.submit '登録する', class: 'btn btn-submit'

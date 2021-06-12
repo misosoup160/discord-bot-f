@@ -32,7 +32,7 @@ class DiscordMessage
     {
       title: answer.question.body,
       description: answer.body,
-      color: 0xfa8072,
+      color: 0xf56a64,
       timestamp: answer.created_at,
       author: {
         name: answer.user.name,
@@ -53,7 +53,7 @@ class DiscordMessage
 
   def first_message
     {
-      content: 'こんにちは！今日もみんなに教えてもらったことを紹介するよ！',
+      content: 'こんにちは！今日もみんなに教えてもらったことを紹介するよ〜。',
       embet: nil
     }
   end
@@ -83,7 +83,8 @@ class DiscordMessage
     url = routes.url_for(host: '127.0.0.1:3000', controller: :answers, action: :new, question: question.id, only_path: false)
     {
       title: question.body,
-      description: "質問に回答するには[ここ](#{url})にアクセスしてね。過去に投稿されたみんなの回答も見れるよ！"
+      description: "質問に回答するには[ここ](#{url})にアクセスしてね。過去に投稿されたみんなの回答も見れるよ！",
+      color: 0x405663
     }
   end
 end

@@ -1,3 +1,18 @@
-h1 Welcom#index
-p Find me in app/views/welcom/index.html.slim
-= link_to 'ログイン', '/auth/discord', method: :post
+.welcom
+  .welcom__icon
+    .i.fab.fa-discord
+    .i.fas.fa-desktop
+  .welcom__title
+    h1
+      | DiscordBot
+      span
+        | F
+  .welcom__description
+    p サーバーのメンバーのことをBotが紹介します!
+    p.gray
+      | フィヨルドブートキャンプサーバー専用のDiscord連携サービスです。
+      br
+      | サービス内でメンバーが質問に答えると、それをDiscordのチャンネルに自動投稿します。
+      br
+      | 是非みなさんのことを教えてくださいね！
+  = link_to 'ログイン', '/auth/discord', method: :post, class: 'btn login-btn'
