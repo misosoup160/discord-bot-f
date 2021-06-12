@@ -23,12 +23,22 @@
 
 .page-header-meta {
   display: flex;
+  flex-wrap: wrap;
   margin-bottom: 10px;
 
   &__item {
     margin-right: 10px;
-    color: $color5;
+    color: lighten($color4, 18%);
     font-size: 0.9rem;
+    line-height: 1.4;
+
+    & span {
+      background: lighten($color4, 18%);
+      color: $white;
+      padding: 4px 8px;
+      border-radius: 8px;
+      font-size: 0.7rem;
+    }
   }
 }
 

@@ -18,13 +18,18 @@
               .list-item-meta__item
                 | #{answer.user.name}##{answer.user.discriminator}
               .list-item-meta__item
-                = l answer.user.created_at, format: :date_only
+                = l answer.user.created_at.to_date, format: :long
           .list-item__row
             = truncate(answer.body, length: 80)
-- else
+- elsif params[:keyword]
   .empty-message
     / i.fas.fa-poo
     i.far.fa-frown
     p
       | '#{params[:keyword]}'に一致する情報は見つかりませんでした。
+-else
+  .empty-message
+    i.far.fa-sad-tear
+    p
+      | まだ回答はありません。
 = paginate @answers

@@ -16,10 +16,6 @@
     align-items: center;
   }
 
-  &.is-posted {
-    
-  }
-
   &__user {
     display: flex;
     align-items: center;
@@ -49,12 +45,16 @@
   }
 
   &__row {
-    color: $color4;
+    color: lighten($color4, 15%);
     font-size: 0.8rem;
     line-height: 1.4;
 
+    &:first-child {
+      margin-bottom: 8px;
+    }
+
     &:not(:first-child) {
-      margin-top: 6px;
+      margin-top: 4px;
     }
   }
 }
@@ -101,8 +101,26 @@
   position: absolute;
   bottom: 12px;
   right: 12px;
-  padding: 4px 8px;
   border-radius: 4px;
   border: 1px solid $color2;
   color: $color2;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  &__text {
+    border-bottom: 1px solid $color2;
+    padding: 3px;
+    font-size: 0.8rem;
+  }
+  &__time {
+    font-size: 0.7rem;
+    padding: 3px;
+  }
+}
+
+@media screen and (max-width:768px) {
+  .stamp {
+    bottom: 8px;
+    right: 8px;
+  }
 }

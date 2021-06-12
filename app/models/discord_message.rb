@@ -8,7 +8,7 @@ class DiscordMessage
       answers = Answer.find(Answer.where(posted: false).pluck(:id).sample(MESSAGE_COUNTS))
       post_message(first_message)
       answers.each do |answer|
-        answer.update(posted: true) if post_message(answers_message(answer))
+        answer.update(posted: true, posted_at: Time.current) if post_message(answers_message(answer))
       end
       post_message(end_message)
     else

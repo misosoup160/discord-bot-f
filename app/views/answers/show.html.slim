@@ -13,7 +13,15 @@
           .page-header-meta__item
             | #{@answer.user.name}##{@answer.user.discriminator}
           .page-header-meta__item
-            = l @answer.user.created_at, format: :date_only
+            | 作成日: 
+            = l @answer.created_at.to_date, format: :long
+          - if @answer.posted?
+            .page-header-meta__item
+              | 投稿日: 
+              = l @answer.posted_at.to_date, format: :long
+          - else
+            .page-header-meta__item
+              span 未投稿
       .page-header__row
         h2.page-header-title
           = @answer.question.body

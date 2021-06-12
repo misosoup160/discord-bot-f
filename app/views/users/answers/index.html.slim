@@ -1,22 +1,29 @@
 .page-title
   h1.page-title__text 自分の回答一覧
-
-.list-container
-  - @answers.each do |answer|
-    div class="list-item #{posted_or_not(answer)}"
-      = image_tag answer.user.avatar_url, class: 'list-item__icon'
-      .list-item__rows
-        .list-item__row
-          = link_to answer.question.body, answer_path(answer), class: 'list-item-title #{posted_or_not(answer)}"'
-        .list-item__row
-          .list-item-meta
-            .list-item-meta__item
-              | #{answer.user.name}##{answer.user.discriminator}
-            .list-item-meta__item
-              = l answer.user.created_at, format: :date_only
-        .list-item__row
-          = truncate(answer.body, length: 80)
-      - if answer.posted?
-        .stamp
-          | 投稿済み
+- if @answers.size.positive?
+  .list-container
+    - @answers.each do |answer|
+      div class="list-item"
+        = image_tag answer.user.avatar_url, class: 'list-item__icon'
+        .list-item__rows
+          .list-item__row
+            = link_to answer.question.body, answer_path(answer), class: 'list-item-title #{posted_or_not(answer)}"'
+          .list-item__row
+            .list-item-meta
+              .list-item-meta__item
+                | #{answer.user.name}##{answer.user.discriminator}
+              .list-item-meta__item
+                = l answer.user.created_at.to_date, format: :long
+          .list-item__row
+            = truncate(answer.body, length: 80)
+        - if answer.posted?
+          .stamp
+            span.stamp__text 投稿済み
+            time.stamp__time
+              = l answer.posted_at.to_date, format: :short
+- else
+  .empty-message
+    i.far.fa-sad-tear
+    p
+      | まだ回答はありません。
 = paginate @answers

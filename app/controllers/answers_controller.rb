@@ -2,7 +2,7 @@
 
 class AnswersController < ApplicationController
   def index
-    @answers = Answer.where(posted: true).order(created_at: :desc).page(params[:page])
+    @answers = Answer.where(posted: true).order(posted_at: :desc).page(params[:page])
   end
 
   def new
@@ -15,7 +15,8 @@ class AnswersController < ApplicationController
   end
 
   def show
-    @answer = Answer.find(params[:id])
+    @answer = Answer.where(posted: true)
+                    .or(Answer.where(user_id: current_user.id)).find(params[:id])
   end
 
   def edit

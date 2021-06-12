@@ -2,6 +2,7 @@ ja:
   date:
     formats:
       default: "%Y年%m月%d日"
+      long: "%Y年%m月%d日(%a)"
       ym_jp: "%Y年%m月"
       ym: "%Y%m"
       ymd_hy: "%Y-%m-%d"
@@ -14,7 +15,6 @@ ja:
       default: "%Y年%m月%d日(%a) %H:%M"
       short: "%Y/%m/%d %H:%M"
       time_only: "%H:%M"
-      date_only: "%Y年%m月%d日(%a)"
       date_and_time: "%m月%d日%H:%M"
   activerecord:
     models:
