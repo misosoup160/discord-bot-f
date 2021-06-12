@@ -2,10 +2,10 @@
   .error-message.alert
     ul
       - question.errors.full_messages.each do |message|
-        li= message
+        li = message
 
 .form-container
-  = form_with(model: [:admin, question], local:true) do |f|
+  = form_with(model: [:admin, question], local: true) do |f|
     .form-item
       = f.text_area :body, rows: 3, required: 'required', class: 'form-item__text'
     .form-item.submit

@@ -2,7 +2,7 @@
   h1.page-title__text ユーザー一覧
 .search-form
   = form_with url: admin_users_search_path, method: :get, local: true do |f|
-    = f.text_field :keyword, value: @keyword,  autocomplete: 'off', class: 'search-form__text'
+    = f.text_field :keyword, value: @keyword, autocomplete: 'off', class: 'search-form__text'
     button.btn-search(type='submit')
       i.fas.fa-search
 - if @users.size.positive?

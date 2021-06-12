@@ -17,7 +17,7 @@ html
         .header-nav
           = link_to 'DiscordBotF', root_path, class: 'header__title'
           .header-nav__items
-            = link_to '質問に答える', new_answer_path, class: "header-nav__item"
+            = link_to '質問に答える', new_answer_path, class: 'header-nav__item'
             = link_to 'みんなの回答', answers_path, class: 'header-nav__item'
             = link_to '自分の回答', user_answers_path(current_user), class: 'header-nav__item'
         .header-checkmenu
@@ -31,9 +31,9 @@ html
     main.main
       .container
         - if flash.notice
-          .flash-message.notice= notice
+          .flash-message.notice = notice
         - if flash.alert
-          .flash-message.alert= alert
+          .flash-message.alert = alert
         = yield
     footer.footer
       | ©misosoup
