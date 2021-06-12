@@ -15,8 +15,7 @@ html
     main.main
       .container
         - if flash.notice
-          .flash-message.notice= notice
+          .flash-message.notice = notice
         - if flash.alert
-          .flash-message.alert= alert
+          .flash-message.alert = alert
         = yield
-

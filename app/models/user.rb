@@ -9,7 +9,7 @@ class User < ApplicationRecord
     provider = auth_hash[:provider]
     uid = auth_hash[:uid]
     name = auth_hash[:info][:name]
-    image_url = auth_hash[:info][:image]
+    avatar = auth_hash[:info][:image]
     discriminator = auth_hash[:extra][:raw_info][:discriminator]
     guild_info = Discordrb::API::Server.resolve("Bot #{ENV['DISCORD_BOT_TOKEN']}", ENV['DISCORD_SERVER_ID'])
     owner_id = JSON.parse(guild_info)['owner_id']
@@ -20,7 +20,7 @@ class User < ApplicationRecord
 
     User.find_or_create_by!(provider: provider, uid: uid) do |user|
       user.name = name
-      user.image_url = image_url
+      user.avatar = avatar
       user.discriminator = discriminator
       user.admin = true if owner_id == uid
     end
