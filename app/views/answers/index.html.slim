@@ -21,10 +21,15 @@
                 = l answer.user.created_at, format: :date_only
           .list-item__row
             = truncate(answer.body, length: 80)
-- else
+- elsif params[:keyword]
   .empty-message
     / i.fas.fa-poo
     i.far.fa-frown
     p
       | '#{params[:keyword]}'に一致する情報は見つかりませんでした。
+-else
+  .empty-message
+    i.far.fa-sad-tear
+    p
+      | まだ回答はありません。
 = paginate @answers
