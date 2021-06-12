@@ -1,8 +1,13 @@
 # frozen_string_literal: true
 
 class AnswersController < ApplicationController
+  before_action :set_answer, only: %i[edit update destroy]
+
   def index
-    @answers = Answer.where(posted: true).order(posted_at: :desc).page(params[:page])
+    @answers = Answer.preload(:question, :user)
+                     .where(posted: true)
+                     .order(posted_at: :desc)
+                     .page(params[:page])
   end
 
   def new
@@ -20,7 +25,6 @@ class AnswersController < ApplicationController
   end
 
   def edit
-    @answer = current_user.answers.find(params[:id])
     @question = Question.find(@answer.question_id)
   end
 
@@ -35,7 +39,6 @@ class AnswersController < ApplicationController
   end
 
   def update
-    @answer = current_user.answers.find(params[:id])
     @question = Question.find(params[:question_id])
     if @answer.update(answer_params.merge(question_id: params[:question_id]))
       redirect_to @answer, notice: '回答の内容を更新しました。'
@@ -45,18 +48,24 @@ class AnswersController < ApplicationController
   end
 
   def destroy
-    @answer = current_user.answers.find(params[:id])
     @answer.destroy
     redirect_to user_answers_path(current_user), notice: '回答を削除しました。'
   end
 
   def search
-    @answers = Answer.search(params[:keyword]).where(posted: true).order(created_at: :desc).page(params[:page])
+    @answers = Answer.search(params[:keyword])
+                     .where(posted: true)
+                     .order(created_at: :desc)
+                     .page(params[:page])
     @keyword = params[:keyword]
     render :index
   end
 
   private
+
+  def set_answer
+    @answer = current_user.answers.find(params[:id])
+  end
 
   def answer_params
     params.require(:answer).permit(:body)
