@@ -3,7 +3,7 @@
 - if @answers.size.positive?
   .list-container
     - @answers.each do |answer|
-      div class="list-item #{posted_or_not(answer)}"
+      div class="list-item"
         = image_tag answer.user.avatar_url, class: 'list-item__icon'
         .list-item__rows
           .list-item__row
@@ -18,7 +18,9 @@
             = truncate(answer.body, length: 80)
         - if answer.posted?
           .stamp
-            | 投稿済み
+            span.stamp__text 投稿済み
+            time.stamp__time
+              = l answer.posted_at.to_date, format: :short
 - else
   .empty-message
     i.far.fa-sad-tear
