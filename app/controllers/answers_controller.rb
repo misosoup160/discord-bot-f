@@ -15,7 +15,8 @@ class AnswersController < ApplicationController
   end
 
   def show
-    @answer = Answer.find(params[:id])
+    @answer = Answer.where(posted: true)
+                    .or(Answer.where(user_id: current_user.id)).find(params[:id])
   end
 
   def edit
