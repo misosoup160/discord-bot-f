@@ -14,18 +14,27 @@
 
 .nav-menu {
   display: none;
-  background: #fff;
-  position: absolute;
-  right: 20px;
-  top: 60px;
-  box-shadow: 0 0 3px rgba(200, 200, 200, 0.4);
-  border-radius: 2px;
-  z-index: 999;
+
+  &__background {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+  }
 
   &__items {
+    position: absolute;
+    right: 40px;
+    top: 60px;
+    background: #fff;
     list-style-type: none;
     padding: 0;
     margin: 0;
+    z-index: 3;
+    box-shadow: 0 0 3px rgba(200, 200, 200, 0.4);
+    border-radius: 2px;
   }
 
   &__item {
@@ -43,5 +52,11 @@
       color: $color1;
       background: #eee;
     }
+  }
+}
+
+@media screen and (max-width:768px) {
+  .nav-menu__items {
+    right: 10px;
   }
 }
