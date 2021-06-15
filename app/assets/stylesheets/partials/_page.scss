@@ -1,6 +1,6 @@
 .page-container {
   margin: 20px 40px;
-  border: 1px solid $color3;
+  border: 1px solid $gray1;
   border-radius: 2px;
   background: $white
 }
@@ -8,7 +8,7 @@
 .page-header {
   display: flex;
   padding: 18px 20px;
-  border-bottom: 3px solid $color3;
+  border-bottom: 3px solid $gray1;
 
   &__icon {
     width: 70px;
@@ -28,12 +28,12 @@
 
   &__item {
     margin-right: 10px;
-    color: lighten($color4, 18%);
+    color: lighten($gray3, 18%);
     font-size: 0.9rem;
     line-height: 1.4;
 
     & span {
-      background: lighten($color4, 18%);
+      background: lighten($gray3, 18%);
       color: $white;
       padding: 4px 8px;
       border-radius: 8px;
@@ -82,5 +82,5 @@
   align-items: center;
   justify-content: space-around;
   padding: 10px;
-  border-top: 3px solid $color3;
+  border-top: 3px solid $gray1;
 }

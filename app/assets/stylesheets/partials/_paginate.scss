@@ -24,7 +24,7 @@
       border-radius: 2px;
 
       &:hover {
-        background: lighten($color5, 10%);
+        background: lighten($gray2, 10%);
       }
     }
   }
@@ -32,11 +32,11 @@
 
 .is-admin-page {
   & .pagination {
-    color: $color3;
+    color: $gray1;
     & span a {
-      color: $color3;
+      color: $gray1;
       &:hover {
-        background: $color4;
+        background: $gray3;
       }
     }
   }

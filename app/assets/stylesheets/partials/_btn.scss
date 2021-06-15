@@ -71,10 +71,10 @@
   }
   &:hover i {
     background: $color2;
-    color: $color3;
+    color: $gray1;
     &.fa-trash-alt {
       background: $color1;
-      color: $color3;
+      color: $gray1;
     }
   }
 }

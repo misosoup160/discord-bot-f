@@ -9,7 +9,7 @@
   position: relative;
   
   &:not(:last-child) {
-    border-bottom: 3px solid $color3;
+    border-bottom: 3px solid $gray1;
   }
 
   &.align-center {
@@ -45,7 +45,7 @@
   }
 
   &__row {
-    color: lighten($color4, 15%);
+    color: lighten($gray3, 15%);
     font-size: 0.8rem;
     line-height: 1.4;
 

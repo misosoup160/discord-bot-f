@@ -4,7 +4,7 @@
     max-width: 300px;
     height: 40px;
     border: 1px solid $color2;
-    background: $color3;
+    background: $gray1;
     display: flex;
     align-items: center;
     border-radius: 20px;
@@ -16,7 +16,7 @@
     border: none;
     flex: 100;
     outline: none;
-    background: $color3;
+    background: $gray1;
     color: $text-color;
   }
   & .btn-search {
@@ -24,7 +24,7 @@
     height: 34px;
     border: none;
     background: $color2;
-    color: $color3;
+    color: $gray1;
     border-radius: 50%;
     cursor: pointer;
   }
@@ -32,15 +32,15 @@
 
 .is-admin-page .search-form {
   & form {
-    border: 1px solid $color3;
+    border: 1px solid $gray1;
     background: $color1;
   }
   &__text {
     background: $color1;
-    color: $color3;
+    color: $gray1;
   }
   & .btn-search {
-    background: $color3;
+    background: $gray1;
     color: $color1;
   }
 }
@@ -62,7 +62,7 @@
   flex-direction: column;
   align-items: center;
   margin-top: 40px;
-  color: $color4;
+  color: $gray3;
   & i {
     font-size: 3rem;
     margin-bottom: 5px;
@@ -70,5 +70,5 @@
 }
 
 .is-admin-page .empty-message {
-  color: $color5;
+  color: $gray2;
 }
