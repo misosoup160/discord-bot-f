@@ -2,7 +2,7 @@
 
 one:
   user: alice
-  question: one
+  question: food
   body: 焼肉定食です。
   posted: true
   created_at: 2021-01-01 00:00:10
@@ -11,7 +11,7 @@ one:
 
 two:
   user: bob
-  question: two
+  question: susi
   body: アジです。
   posted: false
   created_at: 2021-01-01 00:00:12
@@ -20,7 +20,7 @@ two:
 
 three:
   user: bob
-  question: one
+  question: food
   body: オムライスです。
   posted: true
   created_at: 2021-01-01 00:00:14

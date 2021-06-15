@@ -3,7 +3,7 @@
 require 'application_system_test_case'
 
 class UsersTest < ApplicationSystemTestCase
-  test 'visiting the index' do
+  test 'visiting the questions index' do
     login_user users(:alice)
     visit admin_questions_url
     assert_selector 'h1', text: '質問一覧'
