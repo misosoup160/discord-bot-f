@@ -12,4 +12,27 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  OmniAuth.config.test_mode = true
+
+  def discord_mock(name, uid)
+    OmniAuth.config.mock_auth[:discord] = OmniAuth::AuthHash.new({
+      provider: 'discord',
+      uid: uid,
+      info: {
+        name: name
+      },
+      extra: {
+        raw_info: {
+          discriminator: '1234'
+        }
+      }
+    })
+  end
+
+  def login_user(user)
+    visit welcom_url
+    OmniAuth.config.mock_auth[:discord] = nil
+    Rails.application.env_config['omniauth.auth'] = discord_mock(user.name, user.uid)
+    click_link 'ログイン'
+  end
 end
