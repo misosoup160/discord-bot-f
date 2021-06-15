@@ -15,7 +15,7 @@ class ActiveSupport::TestCase
   OmniAuth.config.test_mode = true
 
   def discord_mock(name, uid)
-    OmniAuth.config.mock_auth[:discord] = OmniAuth::AuthHash.new({
+    auth_hash = {
       provider: 'discord',
       uid: uid,
       info: {
@@ -26,7 +26,8 @@ class ActiveSupport::TestCase
           discriminator: '1234'
         }
       }
-    })
+    }
+    OmniAuth.config.mock_auth[:discord] = OmniAuth::AuthHash.new(auth_hash)
   end
 
   def login_user(user)

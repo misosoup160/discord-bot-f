@@ -3,7 +3,6 @@
 require 'application_system_test_case'
 
 class AnswersTest < ApplicationSystemTestCase
-
   test 'visiting the answers index' do
     login_user users(:alice)
     click_link 'みんなの回答'
@@ -33,7 +32,7 @@ class AnswersTest < ApplicationSystemTestCase
   test 'creating a Answer' do
     login_user users(:alice)
     click_link '質問に答える'
-    fill_in 'answer[body]', with: 'とても面白かったのでおすすめです！' 
+    fill_in 'answer[body]', with: 'とても面白かったのでおすすめです！'
     click_on '登録する'
     assert_text '回答を登録しました。'
     assert_text 'とても面白かったのでおすすめです！'
@@ -44,7 +43,7 @@ class AnswersTest < ApplicationSystemTestCase
     click_link '自分の回答'
     click_link '好きな寿司ネタはなんですか？'
     click_link '編集'
-    fill_in 'answer[body]', with: 'シマアジです。' 
+    fill_in 'answer[body]', with: 'シマアジです。'
     click_on '内容変更'
 
     assert_text '回答の内容を更新しました。'

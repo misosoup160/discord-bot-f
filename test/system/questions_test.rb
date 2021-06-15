@@ -13,7 +13,7 @@ class UsersTest < ApplicationSystemTestCase
     login_user users(:alice)
     visit admin_questions_url
     click_link '新規登録'
-    fill_in 'question[body]', with: '好きな漫画はなんですか？' 
+    fill_in 'question[body]', with: '好きな漫画はなんですか？'
     click_on '登録する'
     assert_text '新しい質問を登録しました。'
     assert_text '好きな漫画はなんですか？'
@@ -23,7 +23,7 @@ class UsersTest < ApplicationSystemTestCase
     login_user users(:alice)
     visit admin_questions_url
     click_link 'admin-question-edit', match: :first
-    fill_in 'question[body]', with: '好きな漫画はなんですか？' 
+    fill_in 'question[body]', with: '好きな漫画はなんですか？'
     click_on '内容変更'
     assert_text '質問の内容を更新しました。'
     assert_text '好きな漫画はなんですか？'
