@@ -11,7 +11,7 @@ html {
 }
 
 body {
-  background: $color3;
+  background: $gray1;
 
   &.is-admin-page {
     background: $color1;
@@ -25,10 +25,6 @@ body {
 a {
   text-decoration: none;
   color: $color2;
-
-  // &:hover {
-  //   opacity: 0.4;
-  // }
 }
 
 b,

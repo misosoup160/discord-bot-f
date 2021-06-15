@@ -1,9 +1,3 @@
-.page-title
-  / h1.page-title__text
-  /   | #{@answer.user.name}の回答
-  / = link_to 'みんなの一覧', answers_path, class: 'btn'
-  / = link_to '自分の一覧', user_answers_path(current_user), class: 'btn'
-
 .page-container
   .page-header
     = image_tag @answer.user.avatar_url, class: 'page-header__icon'

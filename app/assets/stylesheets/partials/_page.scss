@@ -1,6 +1,6 @@
 .page-container {
   margin: 20px 40px;
-  border: 1px solid $color3;
+  border: 1px solid $gray1;
   border-radius: 2px;
   background: $white
 }
@@ -8,14 +8,13 @@
 .page-header {
   display: flex;
   padding: 18px 20px;
-  border-bottom: 3px solid $color3;
+  border-bottom: 3px solid $gray1;
 
   &__icon {
     width: 70px;
     height: 70px;
     border-radius: 50%;
     background-color: #fff;
-    // border: 1px solid #eee;
     margin-right: 20px;
   }
 
@@ -28,12 +27,12 @@
 
   &__item {
     margin-right: 10px;
-    color: lighten($color4, 18%);
+    color: lighten($gray3, 18%);
     font-size: 0.9rem;
     line-height: 1.4;
 
     & span {
-      background: lighten($color4, 18%);
+      background: lighten($gray3, 18%);
       color: $white;
       padding: 4px 8px;
       border-radius: 8px;
@@ -57,7 +56,6 @@
       border-radius: 50%;
       background-color: #fff;
       margin: -45px auto 10px;
-      // border: 1px solid #eee;
       box-shadow: 0 1px 2px rgba(200, 200, 200, 0.4);
     }
   }
@@ -66,6 +64,11 @@
 .page-header-title {
   font-size: 1.4rem;
   margin: 5px 0;
+  line-height: 1.4;
+}
+
+.page-description {
+  margin-bottom: 20px;
   line-height: 1.4;
 }
 
@@ -82,5 +85,5 @@
   align-items: center;
   justify-content: space-around;
   padding: 10px;
-  border-top: 3px solid $color3;
+  border-top: 3px solid $gray1;
 }

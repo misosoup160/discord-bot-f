@@ -1,13 +1,13 @@
 .question {
   display: flex;
   align-items: center;
+  margin-bottom: 20px;
 }
 
 .question-item {
   border: 1px solid #ddd;
   padding: 20px;
   border-radius: 4px;
-  margin: 20px 0;
   flex: 100;
   line-height: 1.4;
   background: $white;

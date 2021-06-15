@@ -1,5 +1,5 @@
 .is-admin-page .header {
-  background: $color3;
+  background: $gray1;
 }
 
 .header {
@@ -32,7 +32,7 @@
     color: $color1;
     &:hover {
       background: $color1;
-      color: $color3;
+      color: $gray1;
     }
   }
   & .header-link i {
@@ -47,14 +47,14 @@
     align-items: center;
   }
   &__item {
-    color: $color3;
+    color: $gray1;
     padding: 0 14px;
     height: 30px;
     line-height: 30px;
     border-radius: 15px;
     margin-left: 10px;
     &:hover {
-      background: $color3;
+      background: $gray1;
       color: $color1;
     }
   }
@@ -78,7 +78,7 @@
   }
 
   & i {
-    color: $color3;
+    color: $gray1;
   }
 }
 

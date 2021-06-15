@@ -1,10 +1,9 @@
 .form-container {
-  margin: 20px 0;
+  margin-bottom: 20px;
 }
 
 .form-item {
-  margin-bottom: 10px;
-
+  margin-bottom: 20px;
   &__text {
     border: 1px solid #ddd;
     border-radius: 2px;
@@ -14,13 +13,11 @@
     line-height: 1.4;
     color: $text-color;
     outline: none;
-    margin-bottom: 20px;
     &:focus {
       border: 1px solid $color2;
       box-shadow: 0 0 0 2px rgba(245, 106, 100, 0.4);
     }
   }
-
   &.submit {
     display: flex;
     justify-content: center;
