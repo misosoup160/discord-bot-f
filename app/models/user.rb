@@ -28,7 +28,7 @@ class User < ApplicationRecord
   end
 
   def avatar_url
-    avatar? ? avatar : image_url('/images/default_avatar.png', host: 'http://127.0.0.1:3000')
+    avatar || image_url('/images/default_avatar.png', host: 'http://127.0.0.1:3000')
   end
 
   def self.search(keyword)
