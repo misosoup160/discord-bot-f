@@ -3,6 +3,7 @@
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 require 'rails/test_help'
+require 'webmock/minitest'
 
 class ActiveSupport::TestCase
   # Run tests in parallel with specified workers
@@ -13,6 +14,7 @@ class ActiveSupport::TestCase
 
   # Add more helper methods to be used by all tests here...
   OmniAuth.config.test_mode = true
+  WebMock.allow_net_connect!
 
   def discord_mock(name, uid)
     auth_hash = {
@@ -34,6 +36,8 @@ class ActiveSupport::TestCase
     visit welcom_url
     OmniAuth.config.mock_auth[:discord] = nil
     Rails.application.env_config['omniauth.auth'] = discord_mock(user.name, user.uid)
+    WebMock.allow_net_connect!
+    stub_request(:get, "#{Discordrb::API.api_base}/guilds/#{ENV['DISCORD_SERVER_ID']}/members/#{user.uid}")
     click_link 'ログイン'
   end
 end
