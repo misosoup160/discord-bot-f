@@ -23,6 +23,7 @@ class User < ApplicationRecord
       user.avatar = avatar
       user.discriminator = discriminator
       user.admin = true if owner_id == uid
+      user.owner = true if owner_id == uid
     end
   end
 
