@@ -55,7 +55,7 @@ class AnswersController < ApplicationController
   def search
     @answers = Answer.search(params[:keyword])
                      .where(posted: true)
-                     .order(created_at: :desc)
+                     .order(posted_at: :desc)
                      .page(params[:page])
     @keyword = params[:keyword]
     render :index

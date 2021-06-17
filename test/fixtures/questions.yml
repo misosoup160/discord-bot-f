@@ -1,7 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  body: MyString
+food:
+  body: 好きな食べ物はなんですか？
+  created_at: 2021-01-01 00:00:10
+  updated_at: 2021-01-01 00:00:10
 
-two:
-  body: MyString
+susi:
+  body: 好きな寿司ネタはなんですか？
+  created_at: 2021-01-01 00:00:12
+  updated_at: 2021-01-01 00:00:12
