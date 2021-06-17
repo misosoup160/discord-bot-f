@@ -1,4 +1,4 @@
-.welcom {
+.welcome {
   text-align: center;
   margin-top: 50px;
   color: $color1;
@@ -45,7 +45,7 @@
 }
 
 @media screen and (min-width:768px) {
-  .welcom__icon {
+  .welcome__icon {
     & .fa-discord {
       left: calc(50% - 85px);
     }

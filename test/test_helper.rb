@@ -33,7 +33,7 @@ class ActiveSupport::TestCase
   end
 
   def login_user(user)
-    visit welcom_url
+    visit welcome_url
     OmniAuth.config.mock_auth[:discord] = nil
     Rails.application.env_config['omniauth.auth'] = discord_mock(user.name, user.uid)
     WebMock.allow_net_connect!
