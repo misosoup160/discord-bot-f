@@ -3,19 +3,12 @@ ja:
     formats:
       default: "%Y年%m月%d日"
       long: "%Y年%m月%d日(%a)"
-      ym_jp: "%Y年%m月"
-      ym: "%Y%m"
-      ymd_hy: "%Y-%m-%d"
-      da_jp: "%e日(%a)"
       short: "%Y/%m/%d"
-      md: "%m月%d日"
-      sm: "%m/%d"
   time:
     formats:
       default: "%Y年%m月%d日(%a) %H:%M"
       short: "%Y/%m/%d %H:%M"
       time_only: "%H:%M"
-      date_and_time: "%m月%d日%H:%M"
   activerecord:
     models:
       answer: 回答
