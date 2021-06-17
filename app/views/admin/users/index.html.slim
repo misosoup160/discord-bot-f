@@ -15,7 +15,10 @@
             = user.name
             span.list-item__discriminator
               | ##{user.discriminator}
-        - if user.admin?
+        -if user.owner?
+          .btn.btn-admin-user.btn-owner
+            | 管理人
+        - elsif user.admin?
           = link_to '管理者解除', admin_user_path(user), method: :patch, data: { confirm: '本当によろしいですか？' }, class: 'btn btn-admin-user'
         - else
           = link_to '管理者にする', admin_user_path(user), method: :patch, data: { confirm: '本当によろしいですか？' }, class: 'btn btn-admin-user btn-user'

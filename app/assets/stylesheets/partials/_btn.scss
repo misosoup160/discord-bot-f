@@ -26,6 +26,16 @@
   background-color: $color1;
 }
 
+.btn-owner {
+  background-color: $white;
+  border: 1px solid $color2;
+  color: $color2;
+  &:hover {
+    opacity: 1;
+    color: $color2;
+  }
+}
+
 .list-item__links {
   & .btn {
     width: 70px;
