@@ -36,4 +36,9 @@ html
           .flash-message.alert = alert
         = yield
     footer.footer
-      | ©misosoup
+      .social-links
+        = link_to 'https://github.com/misosoup160/discord-bot-f', class: 'social-link'
+          i.fab.fa-github-alt
+      span
+        = Time.current.year
+        | ©misosoup
