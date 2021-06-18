@@ -1,11 +1,10 @@
 # frozen_string_literal: true
 
 class DiscordMessage
-  MESSAGE_COUNTS = 3
-
   def send
-    if Answer.where(posted: false).count >= MESSAGE_COUNTS
-      answers = Answer.find(Answer.where(posted: false).pluck(:id).sample(MESSAGE_COUNTS))
+    message_count = ENV['SEND_MESSAGE_COUNT'].to_i
+    if Answer.where(posted: false).count >= message_count
+      answers = Answer.find(Answer.where(posted: false).pluck(:id).sample(message_count))
       post_message(first_message)
       answers.each do |answer|
         answer.update(posted: true, posted_at: Time.current) if post_message(answers_message(answer))
@@ -80,7 +79,7 @@ class DiscordMessage
   def daily_embet
     question = Question.find(Question.pluck(:id).sample)
     routes = Rails.application.routes.url_helpers
-    url = routes.url_for(host: '127.0.0.1:3000', controller: :answers, action: :new, question: question.id, only_path: false)
+    url = routes.url_for(host: ENV['URL_HOST'], controller: :answers, action: :new, question: question.id, only_path: false)
     {
       title: question.body,
       description: "質問に回答するには[ここ](#{url})にアクセスしてね。過去に投稿されたみんなの回答も見れるよ！",
