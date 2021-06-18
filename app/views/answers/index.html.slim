@@ -1,5 +1,7 @@
 .page-title
   h1.page-title__text みんなの回答一覧
+p.page-description
+  | すでにDiscordに投稿された回答のみが表示されます。
 .search-form
   = form_with url: answers_search_path, method: :get, local: true do |f|
     = f.text_field :keyword, value: @keyword, autocomplete: 'off', class: 'search-form__text'
@@ -23,7 +25,6 @@
             = truncate(answer.body, length: 80)
 - elsif params[:keyword]
   .empty-message
-    / i.fas.fa-poo
     i.far.fa-frown
     p
       | '#{params[:keyword]}'に一致する情報は見つかりませんでした。

@@ -17,14 +17,13 @@
               | ##{user.discriminator}
         -if user.owner?
           .btn.btn-admin-user.btn-owner
-            | 管理人
+            | 管理者
         - elsif user.admin?
           = link_to '管理者解除', admin_user_path(user), method: :patch, data: { confirm: '本当によろしいですか？' }, class: 'btn btn-admin-user'
         - else
           = link_to '管理者にする', admin_user_path(user), method: :patch, data: { confirm: '本当によろしいですか？' }, class: 'btn btn-admin-user btn-user'
 - else
   .empty-message
-    / i.fas.fa-poo
     i.far.fa-frown
     p
       | '#{params[:keyword]}'に一致する情報は見つかりませんでした。
