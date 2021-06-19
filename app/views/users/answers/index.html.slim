@@ -1,5 +1,7 @@
 .page-title
   h1.page-title__text 自分の回答一覧
+p.page-description
+  | Discordにまだ投稿されていない回答は編集、削除ができます。
 - if @answers.size.positive?
   .list-container
     - @answers.each do |answer|

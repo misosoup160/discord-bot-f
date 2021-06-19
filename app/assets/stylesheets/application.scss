@@ -1,6 +1,3 @@
-// @import "normalize.scss";
-// @import "variables.scss";
-// @import "mixins.scss";
 @import "global/normalize.scss";
 @import "global/variables.scss";
 @import "global/*";
@@ -29,11 +26,36 @@ body {
 }
 
 .footer {
-  padding: 20px 0;
   text-align: center;
   color: $gray2;
   border-top: 1px solid $gray2;
-  height: 60px;
+  height: 74px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  & span {
+    font-size: 0.8rem;
+  }
 }
 
+.social-links {
+  margin-bottom: 8px;
+}
 
+.social-link {
+  color: $gray3;
+  &:hover {
+    color: $gray2;
+  }
+  & i {
+    font-size: 1.5rem;
+  }
+}
+
+.is-admin-page .social-link {
+  color: $gray2;
+  &:hover {
+    color: $gray1;
+  }
+}

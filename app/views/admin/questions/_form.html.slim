@@ -1,3 +1,5 @@
+= javascript_pack_tag 'question_text_count'
+
 - if question.errors.present?
   .error-message.alert
     ul
@@ -7,7 +9,8 @@
 .form-container
   = form_with(model: [:admin, question], local: true) do |f|
     .form-item
-      = f.text_area :body, rows: 3, required: 'required', class: 'form-item__text'
+      = f.text_area :body, rows: 4, required: 'required', class: 'form-item__text'
+      span#question_counter.counter
     .form-item.submit
       - if question.new_record?
         = f.submit '登録する', class: 'btn btn-submit'
