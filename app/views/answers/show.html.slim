@@ -7,11 +7,11 @@
           .page-header-meta__item
             | #{@answer.user.name}##{@answer.user.discriminator}
           .page-header-meta__item
-            | 作成日: 
+            | 作成日：
             = l @answer.created_at.to_date, format: :long
           - if @answer.posted?
             .page-header-meta__item
-              | 投稿日: 
+              | 投稿日：
               = l @answer.posted_at.to_date, format: :long
           - else
             .page-header-meta__item
