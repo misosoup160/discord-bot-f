@@ -5,6 +5,9 @@
     total_pages  : total number of pages
     per_page     : number of items to fetch per page
     remote       : data-remote
+
+- # rubocop:disable Rails/OutputSafety
 span.last
   == link_to_unless current_page.last?, raw('<i class="fas fa-angle-double-right"></i>'), url, remote: remote
 '
+- # rubocop:enable Rails/OutputSafety
