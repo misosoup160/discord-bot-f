@@ -1,4 +1,4 @@
-# DiscorBotF
+# DiscordBotF
 
 フィヨルドブートキャンプサーバー専用のDiscord連携サービスです。
 
