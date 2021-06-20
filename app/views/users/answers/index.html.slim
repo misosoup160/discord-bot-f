@@ -23,9 +23,9 @@ p.page-description
             span.stamp__text 投稿済み
             time.stamp__time
               = l answer.posted_at.to_date, format: :short
+  = paginate @answers
 - else
   .empty-message
     i.far.fa-sad-tear
     p
       | まだ回答はありません。
-= paginate @answers

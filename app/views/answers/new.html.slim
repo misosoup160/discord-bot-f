@@ -1,13 +1,16 @@
 .page-title
   h1.page-title__text 質問に答える
-
 p.page-description
   | SKIPボタンで質問を変えることができます。
   | 好きな質問を選んで答えてください！
-
-.question
-  .question-item
-    = @question.body
-  = link_to 'SKIP', new_answer_path, class: 'btn btn-skip'
-
-= render partial: 'form', locals: { answer: @answer, question: @question }
+- if @question
+  .question
+    .question-item
+      = @question.body
+    = link_to 'SKIP', new_answer_path, class: 'btn btn-skip'
+  = render partial: 'form', locals: { answer: @answer, question: @question }
+- else
+  .empty-message
+    i.far.fa-smile
+    p
+      | 質問を準備中です。

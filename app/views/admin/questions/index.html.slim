@@ -1,15 +1,20 @@
 .page-title
   h1.page-title__text 質問一覧
   = link_to '新規登録', new_admin_question_path, class: 'btn'
-
-.list-container
-  - @questions.each do |question|
-    .list-item.align-center
-      .list-item__body
-        = question.body
-      .list-item__links
-        = link_to edit_admin_question_path(question), class: 'btn-icon', id: 'admin-question-edit'
-          i.fas.fa-edit
-        = link_to [:admin, question], method: :delete, data: { confirm: '本当によろしいですか？' }, class: 'btn-icon', id: 'admin-question-delete'
-          i.fas.fa-trash-alt
-= paginate @questions
+- if @questions.size.positive?
+  .list-container
+    - @questions.each do |question|
+      .list-item.align-center
+        .list-item__body
+          = question.body
+        .list-item__links
+          = link_to edit_admin_question_path(question), class: 'btn-icon', id: 'admin-question-edit'
+            i.fas.fa-edit
+          = link_to [:admin, question], method: :delete, data: { confirm: "質問を消去するとその質問に対する過去の回答も消去されます。\n本当によろしいですか？" }, class: 'btn-icon', id: 'admin-question-delete'
+            i.fas.fa-trash-alt
+  = paginate @questions
+-else
+  .empty-message
+    i.far.fa-sad-tear
+    p
+      | 質問を登録してください。
