@@ -21,6 +21,17 @@ class AnswersTest < ApplicationSystemTestCase
     assert_text 'アジです。'
   end
 
+  test 'redrect to visited page' do
+    user = users(:bob)
+    visit '/answers'
+    OmniAuth.config.mock_auth[:discord] = nil
+    Rails.application.env_config['omniauth.auth'] = discord_mock(user.name, user.uid)
+    stub_request(:get, "#{Discordrb::API.api_base}/guilds/#{ENV['DISCORD_SERVER_ID']}/members/#{user.uid}")
+    click_link 'ログイン'
+    assert_text 'ログインしました。'
+    assert_selector 'h1', text: 'みんなの回答一覧'
+  end
+
   test 'posted answer is not edit' do
     login_user users(:bob)
     click_link '自分の回答'
