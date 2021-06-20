@@ -15,7 +15,7 @@ class AnswersController < ApplicationController
     @question = if params[:question]
                   Question.find(params[:question])
                 else
-                  Question.find(Question.pluck(:id).sample)
+                  Question.find_by(id: Question.pluck(:id).sample)
                 end
   end
 

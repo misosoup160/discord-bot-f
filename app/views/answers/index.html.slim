@@ -23,6 +23,7 @@ p.page-description
                 = l answer.user.created_at.to_date, format: :long
           .list-item__row
             = truncate(answer.body, length: 80)
+  = paginate @answers
 - elsif params[:keyword]
   .empty-message
     i.far.fa-frown
@@ -33,4 +34,3 @@ p.page-description
     i.far.fa-sad-tear
     p
       | まだ回答はありません。
-= paginate @answers

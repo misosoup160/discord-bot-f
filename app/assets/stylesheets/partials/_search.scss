@@ -62,14 +62,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 40px;
-  color: $gray3;
+  margin-top: 80px;
+  color: $gray2;
   & i {
     font-size: 3rem;
     margin-bottom: 5px;
   }
-}
-
-.is-admin-page .empty-message {
-  color: $gray2;
 }

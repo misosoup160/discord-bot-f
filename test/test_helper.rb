@@ -36,7 +36,6 @@ class ActiveSupport::TestCase
     visit welcome_url
     OmniAuth.config.mock_auth[:discord] = nil
     Rails.application.env_config['omniauth.auth'] = discord_mock(user.name, user.uid)
-    WebMock.allow_net_connect!
     stub_request(:get, "#{Discordrb::API.api_base}/guilds/#{ENV['DISCORD_SERVER_ID']}/members/#{user.uid}")
     click_link 'ログイン'
   end
