@@ -10,7 +10,7 @@
     - @users.each do |user|
       .list-item.align-center
         .list-item__user
-          = image_tag user.avatar_url, class: 'list-item__icon'
+          = image_tag user.avatar_url, class: 'list-item__icon is-user-list'
           .list-item__name
             = user.name
             span.list-item__discriminator
