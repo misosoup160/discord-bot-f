@@ -28,6 +28,10 @@
     border-radius: 50%;
     background-color: #fff;
     margin-right: 20px;
+    &.is-user-list {
+      width: 40px;
+      height: 40px;
+    }
   }
 
   &__discriminator {
@@ -68,6 +72,10 @@
       border-radius: 50%;
       background-color: #fff;
       margin-right: 10px;
+      &.is-user-list {
+        width: 35px;
+        height: 35px;
+      }
     }
   }
 }
