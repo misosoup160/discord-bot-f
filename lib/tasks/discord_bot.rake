@@ -10,6 +10,6 @@ namespace :discord_bot do
 
   desc 'send message to discord guild'
   task send_messages: :environment do
-    DiscordMessage.new.send
+    DiscordMessage.new.send if Question.exists?
   end
 end
