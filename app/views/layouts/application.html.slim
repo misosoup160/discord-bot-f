@@ -21,7 +21,7 @@ html
           .header-nav__items
             = link_to '質問に答える', new_answer_path, class: 'header-nav__item'
             = link_to 'みんなの回答', answers_path, class: 'header-nav__item'
-            = link_to '自分の回答', user_answers_path(current_user), class: 'header-nav__item'
+            = link_to '自分の回答', me_answers_path, class: 'header-nav__item'
         .header-checkmenu
           input#nav-input.nav-hidden type="checkbox"
           label for="nav-input"

@@ -10,8 +10,8 @@ Rails.application.routes.draw do
     get 'users/search' => 'users#search'
   end
 
-  resources :users, only: %i() do
-    resources :answers, only: %i(index), controller: 'users/answers'
+  namespace :me do
+    resources :answers, only: %i(index)
   end
 
   get 'answers/search' => 'answers#search'
