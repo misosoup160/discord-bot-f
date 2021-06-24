@@ -6,7 +6,7 @@
     li.nav-menu__item.display-mobile
       = link_to 'みんなの回答', answers_path, class: 'nav-menu__item-link'
     li.nav-menu__item.display-mobile
-      = link_to '自分の回答', user_answers_path(current_user), class: 'nav-menu__item-link'
+      = link_to '自分の回答', me_answers_path, class: 'nav-menu__item-link'
     - if current_user.admin?
       li.nav-menu__item
         = link_to 'ユーザーの管理', admin_users_path, class: 'nav-menu__item-link'
