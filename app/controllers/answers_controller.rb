@@ -32,7 +32,7 @@ class AnswersController < ApplicationController
     @answer = current_user.answers.new(answer_params.merge(question_id: params[:question_id]))
     @question = Question.find(params[:question_id])
     if @answer.save
-      redirect_to user_answers_path(current_user), notice: '回答を登録しました。'
+      redirect_to me_answers_path, notice: '回答を登録しました。'
     else
       render :new
     end
@@ -49,7 +49,7 @@ class AnswersController < ApplicationController
 
   def destroy
     @answer.destroy
-    redirect_to user_answers_path(current_user), notice: '回答を削除しました。'
+    redirect_to me_answers_path, notice: '回答を削除しました。'
   end
 
   def search
