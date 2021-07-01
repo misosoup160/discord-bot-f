@@ -1,15 +1,16 @@
 .search-form {
-  margin-bottom: 20px;
+  margin-bottom: 3px;
+  background: lighten($gray2, 10%);
+  padding: 6px;
   & form {
-    margin: 0 auto;
-    max-width: 300px;
-    height: 40px;
-    border: 1px solid $color2;
-    background: $gray1;
+    margin-left: auto;
+    width: 250px;
+    height: 32px;
+    background: $white;
     display: flex;
     align-items: center;
-    border-radius: 20px;
-    padding-left: 20px;
+    border-radius: 4px;
+    padding-left: 4px;
     padding-right: 2px;
   }
   &__text {
@@ -17,43 +18,38 @@
     border: none;
     flex: 100;
     outline: none;
-    background: $gray1;
     color: $text-color;
   }
   & .btn-search {
-    width: 34px;
-    height: 34px;
+    width: 28px;
+    height: 28px;
     border: none;
-    background: $color2;
+    background: $gray3;
     color: $gray1;
-    border-radius: 50%;
+    border-radius: 4px;
     cursor: pointer;
   }
 }
 
 .is-admin-page .search-form {
+  background: $gray2;
   & form {
-    border: 1px solid $gray1;
-    background: $color1;
+    background: $gray1;
   }
   &__text {
-    background: $color1;
-    color: $gray1;
-  }
-  & .btn-search {
     background: $gray1;
-    color: $color1;
   }
 }
 
 @media screen and (max-width:768px) {
   .search-form {
     & form {
-      height: 38px;
+      height: 34px;
+      width: 100%;
     }
     & .btn-search {
-      width: 32px;
-      height: 32px;
+      width: 28px;
+      height: 28px;
     }
   }
 }
