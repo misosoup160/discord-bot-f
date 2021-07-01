@@ -43,7 +43,7 @@
 }
 
 .btn-edit {
-  margin-right: 10px;
+  width: 200px;
 }
 
 .btn-delete {
@@ -55,6 +55,13 @@
   height: 44px;
   line-height: 44px;
   cursor: pointer;
+  margin-top: 10px;
+}
+
+@media screen and (max-width:768px) {
+  .btn-submit {
+    width: 100%;
+  }
 }
 
 .btn-icon {
@@ -102,5 +109,33 @@
       line-height: 28px;
       font-size: 1.2rem;
     }
+  }
+}
+
+.delete-link {
+  padding-bottom: 2px;
+  color: lighten($gray3, 18%);
+  text-decoration: underline;
+  &:hover {
+    color: $color2;
+  }
+}
+@media screen and (min-width:768px) {
+  .delete-link {
+    position: absolute;
+    right: 40px;
+    bottom: 10px;
+  }
+}
+
+@media screen and (max-width:768px) {
+  .btn-edit {
+    width: 100%;
+  }
+  .delete-link {
+    flex-basis: 100%;
+    max-width: 100%;
+    margin-top: 14px;
+    text-align: right;
   }
 }

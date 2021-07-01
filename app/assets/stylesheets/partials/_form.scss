@@ -2,6 +2,20 @@
   margin-bottom: 20px;
   &.is-question {
     margin-top: 30px;
+    & .submit {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative;
+      & .delete-link {
+        color: $gray1;
+        bottom: 0px;
+        &:hover {
+          color: $color2;
+        }
+      }
+    }
   }
 }
 

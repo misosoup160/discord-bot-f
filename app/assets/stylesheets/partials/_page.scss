@@ -83,7 +83,9 @@
 .page-link {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
+  flex-wrap: wrap;
   padding: 10px;
   border-top: 3px solid $gray1;
+  position: relative;
 }

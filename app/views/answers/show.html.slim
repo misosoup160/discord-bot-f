@@ -24,4 +24,4 @@
   - if !@answer.posted && @answer.user == current_user
     .page-link
       = link_to '編集', edit_answer_path(@answer), class: 'btn btn-edit'
-      = link_to '削除', answer_path(@answer), method: :delete, data: { confirm: '本当によろしいですか？' }, class: 'btn btn-delete'
+      = link_to '削除する', answer_path(@answer), method: :delete, data: { confirm: '本当によろしいですか？' }, class: 'delete-link'

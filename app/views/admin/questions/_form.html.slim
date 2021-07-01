@@ -16,3 +16,4 @@
         = f.submit '登録する', class: 'btn btn-submit'
       - else
         = f.submit '内容変更', class: 'btn btn-submit'
+        = link_to  '削除する', [:admin, question], method: :delete, data: { confirm: "質問を消去するとその質問に対する過去の回答も消去されます。\n本当によろしいですか？" }, class: 'delete-link', id: 'admin-question-delete'
