@@ -6,7 +6,7 @@
       - question.errors.full_messages.each do |message|
         li = message
 
-.form-container
+.form-container.is-question
   = form_with(model: [:admin, question], local: true) do |f|
     .form-item
       = f.text_area :body, rows: 4, required: 'required', class: 'form-item__text'

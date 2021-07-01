@@ -1,9 +1,9 @@
 .btn {
   display: block;
   width: 120px;
-  height: 40px;
+  height: 44px;
   text-align: center;
-  line-height: 40px;
+  line-height: 44px;
   background-color: $color2;
   border-radius: 4px;
   color: white;
@@ -17,8 +17,8 @@
 @media screen and (max-width:768px) {
   .btn {
     width: 100px;
-    height: 36px;
-    line-height: 36px;
+    height: 40px;
+    line-height: 40px;
   }
 }
 
@@ -51,16 +51,10 @@
 }
 
 .btn-submit {
-  width: 180px; 
+  width: 180px;
+  height: 44px;
+  line-height: 44px;
   cursor: pointer;
-}
-
-.btn-skip {
-  width: 60px;
-  height: 60px;
-  line-height: 60px;
-  border-radius: 50%;
-  margin-left: 10px;
 }
 
 .btn-icon {
@@ -99,11 +93,7 @@
     height: 35px;
     line-height: 35px;
   }
-  .btn-skip {
-    width: 50px;
-    height: 50px;
-    line-height: 50px;
-  }
+
   .btn-icon {
     margin-left: 6px;
     & i {

@@ -1,5 +1,8 @@
 .form-container {
   margin-bottom: 20px;
+  &.is-question {
+    margin-top: 30px;
+  }
 }
 
 .form-item {
@@ -14,8 +17,7 @@
     outline: none;
     resize: vertical;
     &:focus {
-      border: 1px solid $color2;
-      box-shadow: 0 0 0 2px rgba(245, 106, 100, 0.4);
+      box-shadow: 0 0 2px 2px rgba(245, 106, 100, 0.4);
     }
   }
   &.submit {
