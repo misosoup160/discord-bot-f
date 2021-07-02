@@ -65,7 +65,7 @@ class AnswersTest < ApplicationSystemTestCase
     login_user users(:bob)
     click_link '自分の回答'
     click_link '好きな寿司ネタはなんですか？'
-    click_link '削除'
+    click_link '削除する'
     accept_confirm
     assert_text '回答を削除しました。'
     assert_no_text 'アジです。'

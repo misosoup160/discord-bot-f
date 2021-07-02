@@ -2,15 +2,26 @@
   display: flex;
   align-items: center;
   margin-bottom: 20px;
+  margin-top: 30px;
 }
 
 .question-item {
   border: 1px solid #ddd;
-  padding: 20px;
+  padding: 16px;
   border-radius: 4px;
   flex: 100;
   line-height: 1.4;
   background: $white;
   color: $color1;
+  font-size: 1.1rem;
 }
 
+.btn-skip {
+  width: 52px;
+  height: 52px;
+  line-height: 52px;
+  background: $gray2;
+  border-radius: 50%;
+  margin-left: 10px;
+  font-size: 0.9rem;
+}

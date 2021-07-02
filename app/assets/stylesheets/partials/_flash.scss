@@ -10,12 +10,12 @@
 }
 
 .notice {
-  border: 1px solid $color2;
-  color: $color2;
-  background: lighten($color2, 27%);
+  border: 1px solid $notice;
+  color: $notice;
+  background: lighten($notice, 40%);
 }
 .alert {
-  border: 1px solid $color3;
-  color: $color3;
-  background: lighten($color3, 35%);
+  border: 1px solid $alert;
+  color: $alert;
+  background: lighten($alert, 35%);
 }

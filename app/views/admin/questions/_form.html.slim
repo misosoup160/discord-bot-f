@@ -6,7 +6,7 @@
       - question.errors.full_messages.each do |message|
         li = message
 
-.form-container
+.form-container.is-question
   = form_with(model: [:admin, question], local: true) do |f|
     .form-item
       = f.text_area :body, rows: 4, required: 'required', class: 'form-item__text'
@@ -16,3 +16,4 @@
         = f.submit '登録する', class: 'btn btn-submit'
       - else
         = f.submit '内容変更', class: 'btn btn-submit'
+        = link_to  '削除する', [:admin, question], method: :delete, data: { confirm: "質問を消去するとその質問に対する過去の回答も消去されます。\n本当によろしいですか？" }, class: 'delete-link', id: 'admin-question-delete'

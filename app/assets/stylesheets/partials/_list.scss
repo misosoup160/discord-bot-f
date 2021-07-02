@@ -1,5 +1,6 @@
 .list-container {
   margin-bottom: 20px;
+  margin-top: 30px;
 }
 
 .list-item {
@@ -27,7 +28,7 @@
     height: 50px;
     border-radius: 50%;
     background-color: #fff;
-    margin-right: 20px;
+    margin-right: 14px;
     &.is-user-list {
       width: 40px;
       height: 40px;
@@ -41,11 +42,6 @@
   &__body {
     flex: 100;
     line-height: 1.4;
-  }
-
-  &__links {
-    display: flex;
-    margin-left: 10px;
   }
 
   &__row {

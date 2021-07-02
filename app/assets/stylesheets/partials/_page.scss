@@ -68,22 +68,28 @@
 }
 
 .page-description {
-  margin-bottom: 20px;
   line-height: 1.4;
+  color: $gray3;
 }
 
 .page-body {
   padding: 20px;
   min-height: 200px;
   & p {
-    line-height: 1.5;
+    line-height: 1.8;
+    margin: 0;
+    &:not(:last-child) {
+      margin-bottom: 15px;
+    }
   }
 }
 
 .page-link {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
+  flex-wrap: wrap;
   padding: 10px;
   border-top: 3px solid $gray1;
+  position: relative;
 }

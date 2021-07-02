@@ -1,9 +1,3 @@
-@media screen and (min-width:768px) {
-  .display-mobile {
-    display: none;
-  }
-}
-
 .nav-hidden {
   display: none;
 }
@@ -27,13 +21,13 @@
   &__items {
     position: absolute;
     right: 40px;
-    top: 60px;
+    top: 64px;
     background: #fff;
     list-style-type: none;
     padding: 0;
     margin: 0;
     z-index: 3;
-    box-shadow: 0 0 3px rgba(200, 200, 200, 0.4);
+    box-shadow: 0 0 2px rgba(200, 200, 200, 0.4);
     border-radius: 2px;
   }
 

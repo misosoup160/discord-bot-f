@@ -31,8 +31,7 @@
   & .header-nav__item {
     color: $color1;
     &:hover {
-      background: $color1;
-      color: $gray1;
+      background: rgba($color1, 0.2);
     }
   }
   & .header-link i {
@@ -53,9 +52,9 @@
     line-height: 30px;
     border-radius: 15px;
     margin-left: 10px;
+    transition: all 0.4s ease;
     &:hover {
-      background: $gray1;
-      color: $color1;
+      background: rgba($gray1, 0.4);
     }
   }
 }

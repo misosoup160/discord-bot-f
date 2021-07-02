@@ -1,5 +1,22 @@
 .form-container {
   margin-bottom: 20px;
+  &.is-question {
+    margin-top: 30px;
+    & .submit {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative;
+      & .delete-link {
+        color: $gray1;
+        bottom: 0px;
+        &:hover {
+          color: $color2;
+        }
+      }
+    }
+  }
 }
 
 .form-item {
@@ -9,13 +26,12 @@
     padding: 16px;
     width: 100%;
     font-size: 1rem;
-    line-height: 1.4;
+    line-height: 1.8;
     color: $text-color;
     outline: none;
     resize: vertical;
     &:focus {
-      border: 1px solid $color2;
-      box-shadow: 0 0 0 2px rgba(245, 106, 100, 0.4);
+      box-shadow: 0 0 3px 3px rgba(245, 106, 100, 0.4);
     }
   }
   &.submit {
