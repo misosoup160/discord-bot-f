@@ -25,37 +25,44 @@ body {
   flex: 1;
 }
 
-.footer {
-  text-align: center;
-  color: $gray2;
-  border-top: 1px solid $gray2;
-  height: 74px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  & span {
-    font-size: 0.8rem;
+@media screen and (max-width:768px) {
+  .main {
+    padding-bottom: 80px;
+  }
+  .footer {
+    display: none;
   }
 }
 
-.social-links {
-  margin-bottom: 8px;
-}
-
-.social-link {
-  color: $gray3;
-  &:hover {
+@media screen and (min-width:768px) {
+  .footer {
+    text-align: center;
     color: $gray2;
+    border-top: 1px solid $gray2;
+    height: 74px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    & span {
+      font-size: 0.8rem;
+    }
   }
-  & i {
-    font-size: 1.5rem;
+  .social-links {
+    margin-bottom: 8px;
   }
-}
-
-.is-admin-page .social-link {
-  color: $gray2;
-  &:hover {
-    color: $gray1;
+  .social-link {
+    color: $gray3;
+    &:hover {
+      color: $gray2;
+    }
+    & i {
+      font-size: 1.5rem;
+    }
+  }
+  .is-admin-page .social-link {
+    color: $gray2;
+    &:hover {
+      color: $gray1;
+    }
   }
 }

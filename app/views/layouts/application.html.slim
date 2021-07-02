@@ -30,6 +30,16 @@ html
                 = image_tag current_user.avatar_url, class: 'header-current-user__icon'
               i.fas.fa-caret-down
           = render 'nav_menu'
+    nav.footer-nav
+      = link_to new_answer_path, class: 'footer-nav__item'
+        i.fas.fa-edit
+        span 質問に答える
+      = link_to answers_path, class: 'footer-nav__item'
+        i.fas.fa-users
+        span みんなの回答
+      = link_to me_answers_path, class: 'footer-nav__item'
+        i.fas.fa-user
+        span 自分の回答
     main.main
       .container
         - if flash.notice

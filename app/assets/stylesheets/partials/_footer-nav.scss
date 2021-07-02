@@ -1,0 +1,33 @@
+@media screen and (min-width:768px) {
+  .footer-nav {
+    display: none;
+  }
+}
+@media screen and (max-width:768px) {
+  .footer-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    height: 60px;
+    background: $gray1;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-top: 1px solid $gray2;
+    &__item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: $color1;
+      & i {
+        font-size: 1.7rem;
+        margin-bottom: 6px;
+      }
+      & span {
+        font-size: 0.6rem;
+      }
+    }
+  }
+}
