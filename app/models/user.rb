@@ -33,7 +33,7 @@ class User < ApplicationRecord
 
   def self.search(keyword)
     if keyword
-      where("concat_ws('#', name, discriminator) like ?", "%#{keyword}%")
+      where("concat_ws('#', name, discriminator) like ?", "%#{sanitize_sql_like(keyword)}%")
     else
       User.all
     end

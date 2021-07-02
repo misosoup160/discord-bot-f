@@ -8,9 +8,9 @@ class Answer < ApplicationRecord
 
   def self.search(keyword)
     if keyword
-      Answer.eager_load(:question, :user).where('answers.body like ?', "%#{keyword}%")
-            .or(Answer.eager_load(:question, :user).where('questions.body like ?', "%#{keyword}%"))
-            .or(Answer.eager_load(:question, :user).where("concat_ws('#', users.name, users.discriminator) like ?", "%#{keyword}%"))
+      Answer.eager_load(:question, :user).where('answers.body like ?', "%#{sanitize_sql_like(keyword)}%")
+            .or(Answer.eager_load(:question, :user).where('questions.body like ?', "%#{sanitize_sql_like(keyword)}%"))
+            .or(Answer.eager_load(:question, :user).where("concat_ws('#', users.name, users.discriminator) like ?", "%#{sanitize_sql_like(keyword)}%"))
     else
       Answer.all
     end
