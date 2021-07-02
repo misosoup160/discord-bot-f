@@ -32,7 +32,8 @@ class UsersTest < ApplicationSystemTestCase
   test 'destroying a question' do
     login_user users(:alice)
     visit admin_questions_url
-    click_link 'admin-question-delete', match: :first
+    click_link 'admin-question-edit', match: :first
+    click_link '削除する'
     accept_confirm
     assert_text '質問を削除しました。'
     assert_no_text '好きな寿司ネタはなんですか？'
