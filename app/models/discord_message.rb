@@ -17,17 +17,15 @@ class DiscordMessage
 
   private
 
-  # rubocop:disable Lint/UselessAssignment
   def post_message(post)
     Discordrb::API::Channel.create_message(
       "Bot #{ENV['DISCORD_BOT_TOKEN']}",
       ENV['DISCORD_CHANNEL_ID'],
-      message = post[:content],
-      tts = false,
-      embed = post[:embet]
+      post[:content],
+      false,
+      post[:embet]
     )
   end
-  # rubocop:enable Lint/UselessAssignment
 
   def create_embet(answer)
     {
