@@ -26,12 +26,12 @@
     padding: 16px;
     width: 100%;
     font-size: 1rem;
-    line-height: 1.4;
+    line-height: 1.8;
     color: $text-color;
     outline: none;
     resize: vertical;
     &:focus {
-      box-shadow: 0 0 2px 2px rgba(245, 106, 100, 0.4);
+      box-shadow: 0 0 3px 3px rgba(245, 106, 100, 0.4);
     }
   }
   &.submit {
