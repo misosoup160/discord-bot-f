@@ -8,8 +8,10 @@ class UserTest < ActiveSupport::TestCase
     assert_equal "#{ENV['IMAGE_URL_HOST']}/images/default_avatar.png", user.avatar_url
   end
 
-  test '#users_search' do
+  test '.search' do
     user = users(:alice)
     assert_equal user, User.search('alice#1234').first
+    assert_equal 2, User.search('').count
+    assert_equal nil, User.search('%').first
   end
 end

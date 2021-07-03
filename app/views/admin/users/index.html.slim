@@ -15,7 +15,7 @@
             = user.name
             span.list-item__discriminator
               | ##{user.discriminator}
-        -if user.owner?
+        - if user.owner?
           .btn.btn-admin-user.btn-owner
             | 管理者
         - elsif user.admin?

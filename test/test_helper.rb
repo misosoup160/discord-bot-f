@@ -31,12 +31,4 @@ class ActiveSupport::TestCase
     }
     OmniAuth.config.mock_auth[:discord] = OmniAuth::AuthHash.new(auth_hash)
   end
-
-  def login_user(user)
-    visit welcome_url
-    OmniAuth.config.mock_auth[:discord] = nil
-    Rails.application.env_config['omniauth.auth'] = discord_mock(user.name, user.uid)
-    stub_request(:get, "#{Discordrb::API.api_base}/guilds/#{ENV['DISCORD_SERVER_ID']}/members/#{user.uid}")
-    click_link 'ログイン'
-  end
 end
