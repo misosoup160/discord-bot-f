@@ -10,7 +10,7 @@
   = form_with(model: answer, local: true) do |f|
     =  hidden_field_tag :question_id, question.id
     .form-item
-      = f.text_area :body, rows: '10', required: 'required', class: 'form-item__text'
+      = f.text_area :body, rows: '8', required: 'required', class: 'form-item__text'
       span#answer_counter.counter
     .form-item.submit
       - if answer.new_record?

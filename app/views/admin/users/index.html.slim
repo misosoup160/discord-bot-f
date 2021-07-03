@@ -16,12 +16,12 @@
             span.list-item__discriminator
               | ##{user.discriminator}
         - if user.owner?
-          .btn.btn-admin-user.btn-owner
+          .btn.btn-admin-user.is-owner
             | 管理者
         - elsif user.admin?
-          = link_to '管理者解除', admin_user_path(user), method: :patch, data: { confirm: '本当によろしいですか？' }, class: 'btn btn-admin-user'
+          = link_to '管理者解除', admin_user_path(user), method: :patch, data: { confirm: '本当によろしいですか？' }, class: 'btn btn-admin-user is-admin'
         - else
-          = link_to '管理者にする', admin_user_path(user), method: :patch, data: { confirm: '本当によろしいですか？' }, class: 'btn btn-admin-user btn-user'
+          = link_to '管理者にする', admin_user_path(user), method: :patch, data: { confirm: '本当によろしいですか？' }, class: 'btn btn-admin-user is-user'
   = paginate @users
 - else
   .empty-message
