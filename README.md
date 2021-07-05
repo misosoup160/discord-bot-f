@@ -76,3 +76,7 @@ Herokuで動かす際はHeroku Schedulerにこのコマンドを登録してく�
 ```
 $ rails test:all
 ```
+
+## ScreenShots
+![discord-bot-f-1](https://user-images.githubusercontent.com/66161651/124405816-8f02b500-dd7a-11eb-9491-ed32dbae5982.png)
+![discord-bot-f-2](https://user-images.githubusercontent.com/66161651/124405827-95912c80-dd7a-11eb-9761-e97ec6d518b7.png)
