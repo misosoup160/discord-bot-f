@@ -15,8 +15,7 @@ class User < ApplicationRecord
     owner_id = JSON.parse(guild_info)['owner_id']
 
     # サーバーメンバーではない場合リクエストに失敗してログインできない
-    menber = Discordrb::API::Server.resolve_member("Bot #{ENV['DISCORD_BOT_TOKEN']}", ENV['DISCORD_SERVER_ID'], uid)
-    return unless menber
+    Discordrb::API::Server.resolve_member("Bot #{ENV['DISCORD_BOT_TOKEN']}", ENV['DISCORD_SERVER_ID'], uid)
 
     User.find_or_create_by!(provider: provider, uid: uid) do |user|
       user.name = name
