@@ -37,6 +37,6 @@ class UserTest < ActiveSupport::TestCase
     user = users(:alice)
     assert_equal user, User.search('alice#1234').first
     assert_equal 2, User.search('').count
-    assert_equal nil, User.search('%').first
+    assert_nil User.search('%').first
   end
 end

@@ -8,6 +8,6 @@ class AnswerTest < ActiveSupport::TestCase
     assert_equal answers(:three), Answer.search('bob').first
     assert_equal answers(:three), Answer.search('食べ物').first
     assert_equal 3, Answer.search('').count
-    assert_equal nil, Answer.search('%').first
+    assert_nil Answer.search('%').first
   end
 end
