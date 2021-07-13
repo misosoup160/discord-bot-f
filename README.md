@@ -7,7 +7,7 @@ Discordコミュニティ内のメンバーがお互いのことをもっと知�
 
 ## 開発環境
 
-- Ruby 3.0.0
+- Ruby 3.0.2
 - Rails 6.1.3
 
 ## 機能概要
@@ -67,6 +67,7 @@ $ rails server
 ローカルの場合は`rails discord_bot:start`でBotをオンライン状態にたちあげることができます。
 Herokuで動かす際はDynosに表示されるこのコマンドをONにしてください。
 ユーザーの自動削除機能はBotをオンライン状態にしていないと機能しません。
+※Heroku無料枠で利用している場合はスリープ状態になってしまうようなので、Heroku Schedulerで10分おきにアクセスさせるなどして対応してください。
 
 メッセージの送信は`rails discord_bot:send_messages`を定期実行することで動作しています。
 Herokuで動かす際はHeroku Schedulerにこのコマンドを登録してください。
