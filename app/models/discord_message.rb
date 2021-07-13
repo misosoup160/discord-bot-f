@@ -1,13 +1,32 @@
 # frozen_string_literal: true
 
 class DiscordMessage
-  def send
-    message_count = ENV['SEND_MESSAGE_COUNT'].to_i
-    if Answer.where(posted: false).count >= message_count
-      answers = Answer.find(Answer.where(posted: false).pluck(:id).sample(message_count))
+  attr_reader :message_count, :host, :comment, :question
+
+  def initialize (
+    message_count: ENV['SEND_MESSAGE_COUNT'].to_i,
+    host: ENV['URL_HOST'],
+    comment: nil,
+    question: nil
+  )
+    @message_count = message_count
+    @host = host
+    comments = [
+      '確かに〜。',
+      'なるほど〜。',
+      'わかります！'
+    ]
+    @comment = comment || comments.sample
+    @question = question || Question.find(Question.pluck(:id).sample)
+  end
+
+  def post(answers: nil)
+    answers ||= pickup_answers
+    if answers
       post_message(first_message)
       answers.each do |answer|
-        answer.update(posted: true, posted_at: Time.current) if post_message(answers_message(answer))
+        post_message(answers_message(answer))
+        answer.update!(posted: true, posted_at: Time.current)
       end
       post_message(end_message)
     else
@@ -17,23 +36,27 @@ class DiscordMessage
 
   private
 
-  # rubocop:disable Lint/UselessAssignment
-  def post_message(post)
+  def pickup_answers
+    if Answer.where(posted: false).count >= message_count
+      answers = Answer.find(Answer.where(posted: false).pluck(:id).sample(message_count))
+    end
+  end
+
+  def post_message(message)
     Discordrb::API::Channel.create_message(
       "Bot #{ENV['DISCORD_BOT_TOKEN']}",
       ENV['DISCORD_CHANNEL_ID'],
-      message = post[:content],
-      tts = false,
-      embed = post[:embet]
+      message[:content],
+      false,
+      message[:embed]
     )
   end
-  # rubocop:enable Lint/UselessAssignment
 
-  def create_embet(answer)
+  def create_embed(answer)
     {
       title: answer.question.body,
       description: answer.body,
-      color: 0xf56a64,
+      color: 16083556,
       timestamp: answer.created_at,
       author: {
         name: answer.user.name,
@@ -48,44 +71,38 @@ class DiscordMessage
   def answers_message(answer)
     {
       content: "<@#{answer.user.uid}>さんに聞きました！",
-      embet: create_embet(answer)
+      embed: create_embed(answer)
     }
   end
 
   def first_message
     {
       content: 'こんにちは！今日もみんなに教えてもらったことを紹介するよ〜。',
-      embet: nil
+      embed: nil
     }
   end
 
   def end_message
-    comment = [
-      '確かに〜。',
-      'なるほど〜。',
-      'わかります！'
-    ]
     {
-      content: "#{comment.sample}\n今日はみんなにこんなことも聞いてみたいな。",
-      embet: daily_embet
+      content: "#{comment}\n今日はみんなにこんなことも聞いてみたいな。",
+      embed: daily_embed
     }
   end
 
   def no_answer_message
     {
       content: "こんにちは！こちらは毎日サーバーのメンバーのことを紹介するBotです！\nみんなのお話是非聞かせてください。\n今日はこんな質問はどうかな？",
-      embet: daily_embet
+      embed: daily_embed
     }
   end
 
-  def daily_embet
-    question = Question.find(Question.pluck(:id).sample)
+  def daily_embed
     routes = Rails.application.routes.url_helpers
-    url = routes.url_for(host: ENV['URL_HOST'], controller: :answers, action: :new, question: question.id, only_path: false)
+    url = routes.url_for(host: host, controller: :answers, action: :new, question: question.id, only_path: false)
     {
       title: question.body,
       description: "質問に回答するには[ここ](#{url})にアクセスしてね。過去に投稿されたみんなの回答も見れるよ！",
-      color: 0x405663
+      color: 4216419
     }
   end
 end

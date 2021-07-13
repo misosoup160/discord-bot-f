@@ -3,8 +3,11 @@
 require 'test_helper'
 
 class AnswerTest < ActiveSupport::TestCase
-  test '#answers_search' do
-    answer = answers(:one)
-    assert_equal answer, Answer.search('焼肉定食').first
+  test '.search' do
+    assert_equal answers(:one), Answer.search('焼肉定食').first
+    assert_equal answers(:three), Answer.search('bob').first
+    assert_equal answers(:three), Answer.search('食べ物').first
+    assert_equal 3, Answer.search('').count
+    assert_nil Answer.search('%').first
   end
 end

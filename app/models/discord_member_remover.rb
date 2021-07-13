@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class DiscordRemoveMember
+class DiscordMemberRemover
   def initialize(bot)
     @bot = bot
   end

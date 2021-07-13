@@ -22,20 +22,6 @@
   }
 }
 
-.btn-user {
-  background-color: $color1;
-}
-
-.btn-owner {
-  background-color: $white;
-  border: 1px solid $color2;
-  color: $color2;
-  &:hover {
-    opacity: 1;
-    color: $color2;
-  }
-}
-
 .list-item__links {
   & .btn {
     width: 70px;
@@ -92,6 +78,33 @@
 
 .btn-admin-user {
   margin-left: 10px;
+  height: 40px;
+  line-height: 38px;
+  border: 1px solid $color2;
+  &.is-user {
+    background-color: $white;
+    color: $color2;
+    &:hover {
+      background-color: $color2;
+      color: $white;
+      opacity: 1;
+    }
+  }
+  &.is-admin {
+    &:hover {
+      background-color: $white;
+      color: $color2;
+      opacity: 1;
+    }
+  }
+  &.is-owner {
+    background: $gray2;
+    color: $white;
+    border: 1px solid $gray2;
+    &:hover {
+      opacity: 1;
+    }
+  }
 }
 
 @media screen and (max-width:768px) {

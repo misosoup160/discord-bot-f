@@ -7,12 +7,12 @@
 
 .page-header {
   display: flex;
-  padding: 18px 20px;
+  padding: 16px 20px;
   border-bottom: 3px solid $gray1;
 
   &__icon {
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     background-color: #fff;
     margin-right: 20px;
@@ -23,12 +23,13 @@
 .page-header-meta {
   display: flex;
   flex-wrap: wrap;
+  margin-top: 4px;
   margin-bottom: 10px;
 
   &__item {
     margin-right: 10px;
     color: lighten($gray3, 18%);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     line-height: 1.4;
 
     & span {
@@ -51,10 +52,6 @@
     flex-direction: column;
 
     &__icon {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      background-color: #fff;
       margin: -45px auto 10px;
       box-shadow: 0 1px 2px rgba(200, 200, 200, 0.4);
     }
@@ -63,7 +60,7 @@
 
 .page-header-title {
   font-size: 1.4rem;
-  margin: 5px 0;
+  margin: 0;
   line-height: 1.4;
 }
 
