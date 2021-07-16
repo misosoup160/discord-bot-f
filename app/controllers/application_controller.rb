@@ -12,6 +12,6 @@ class ApplicationController < ActionController::Base
 
   def login_required
     session[:return_to] = request.url
-    redirect_to welcome_path unless current_user
+    redirect_to welcome_url unless current_user
   end
 end
