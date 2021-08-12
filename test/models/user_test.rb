@@ -28,11 +28,6 @@ class UserTest < ActiveSupport::TestCase
     assert_equal User.find_by(uid: uid), User.find_or_create_from_auth_hash!(auth_hash)
   end
 
-  test '#avatar_url' do
-    user = users(:alice)
-    assert_equal "#{ENV['IMAGE_URL_HOST']}/images/default_avatar.png", user.avatar_url
-  end
-
   test '.search' do
     user = users(:alice)
     assert_equal user, User.search('alice#1234').first

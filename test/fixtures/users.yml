@@ -6,6 +6,7 @@ alice:
   name: alice
   discriminator: '1234'
   admin: true
+  avatar: https://cdn.discordapp.com/embed/avatars/3.png
 
 bob:
   provider: discord
@@ -13,3 +14,4 @@ bob:
   name: bob
   discriminator: '1234'
   admin: false
+  avatar: https://cdn.discordapp.com/embed/avatars/1.png

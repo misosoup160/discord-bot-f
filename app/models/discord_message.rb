@@ -60,10 +60,10 @@ class DiscordMessage
       timestamp: answer.created_at,
       author: {
         name: answer.user.name,
-        icon_url: answer.user.avatar_url
+        icon_url: answer.user.avatar
       },
       thumbnail: {
-        url: answer.user.avatar_url
+        url: answer.user.avatar
       }
     }
   end

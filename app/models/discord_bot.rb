@@ -27,13 +27,13 @@ class DiscordBot
       name = user['username']
       discriminator = user['discriminator']
       avatar_id = user['avatar']
-      avatar_url = avatar_id ? 
+      avatar = avatar_id ? 
         Discordrb::API::User.avatar_url(uid, avatar_id) :
         Discordrb::API::User.default_avatar(discriminator)
 
       user = User.find_by(uid: uid)
       user.update!(name: name) if user && user.name != name
-      user.update!(avatar: avatar_url) if user && user.avatar != avatar_url
+      user.update!(avatar: avatar) if user && user.avatar != avatar
       user.update!(discriminator: discriminator) if user && user.discriminator != discriminator
     end
   end

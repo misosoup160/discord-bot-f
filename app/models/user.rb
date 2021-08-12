@@ -28,10 +28,6 @@ class User < ApplicationRecord
     end
   end
 
-  def avatar_url
-    avatar || image_url('/images/default_avatar.png', host: ENV['IMAGE_URL_HOST'])
-  end
-
   def self.search(keyword)
     if keyword
       where("concat_ws('#', name, discriminator) like ?", "%#{sanitize_sql_like(keyword)}%")
