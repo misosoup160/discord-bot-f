@@ -51,7 +51,6 @@ OAuth2の設定
 | DISCORD_CHANNEL_ID    | Botのメッセージを送信したいチャンネルのID |
 | SEND_MESSAGE_COUNT    | 一度に送信する回答数                      |
 | URL_HOST              | ローカルの場合は`127.0.0.1:3000`          |
-| IMAGE_URL_HOST        | ローカルの場合は`http://127.0.0.1:3000`   |
 
 Discordの個人設定の詳細設定から開発者モードをONにすると、サーバーやチャンネルのIDを取得できるようになります。
 

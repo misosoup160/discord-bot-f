@@ -6,7 +6,7 @@ p.page-description
   .list-container
     - @answers.each do |answer|
       div class="list-item"
-        = image_tag answer.user.avatar_url, class: 'list-item__icon'
+        = image_tag answer.user.avatar, class: 'list-item__icon'
         .list-item__rows
           .list-item__row
             = link_to answer.question.body, answer_path(answer), class: 'list-item-title'

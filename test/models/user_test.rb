@@ -17,7 +17,7 @@ class UserTest < ActiveSupport::TestCase
         }
       }
     }
-    stub_request(:get, "#{Discordrb::API.api_base}/guilds/#{ENV['DISCORD_SERVER_ID']}").to_return(body: {"owner_id": "123456"}.to_json, status: 200)
+    stub_request(:get, "#{Discordrb::API.api_base}/guilds/#{ENV['DISCORD_SERVER_ID']}").to_return(body: { "owner_id": '123456' }.to_json, status: 200)
     stub_request(:get, "#{Discordrb::API.api_base}/guilds/#{ENV['DISCORD_SERVER_ID']}/members/#{uid}")
     user = User.find_or_create_from_auth_hash!(auth_hash)
     assert_equal '123456', user.uid
@@ -26,11 +26,6 @@ class UserTest < ActiveSupport::TestCase
     assert_equal true, user.owner
     assert_equal true, user.admin
     assert_equal User.find_by(uid: uid), User.find_or_create_from_auth_hash!(auth_hash)
-  end
-
-  test '#avatar_url' do
-    user = users(:alice)
-    assert_equal "#{ENV['IMAGE_URL_HOST']}/images/default_avatar.png", user.avatar_url
   end
 
   test '.search' do
