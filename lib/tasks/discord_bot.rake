@@ -3,9 +3,7 @@
 namespace :discord_bot do
   desc 'start discord bot'
   task start: :environment do
-    bot = Discordrb::Bot.new token: ENV['DISCORD_BOT_TOKEN']
-    DiscordMemberRemover.new(bot).run
-    bot.run
+    DiscordBot.new.start
   end
 
   desc 'send message to discord guild'
