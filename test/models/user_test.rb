@@ -17,7 +17,7 @@ class UserTest < ActiveSupport::TestCase
         }
       }
     }
-    stub_request(:get, "#{Discordrb::API.api_base}/guilds/#{ENV['DISCORD_SERVER_ID']}").to_return(body: {"owner_id": "123456"}.to_json, status: 200)
+    stub_request(:get, "#{Discordrb::API.api_base}/guilds/#{ENV['DISCORD_SERVER_ID']}").to_return(body: { "owner_id": '123456' }.to_json, status: 200)
     stub_request(:get, "#{Discordrb::API.api_base}/guilds/#{ENV['DISCORD_SERVER_ID']}/members/#{uid}")
     user = User.find_or_create_from_auth_hash!(auth_hash)
     assert_equal '123456', user.uid

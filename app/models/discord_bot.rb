@@ -21,20 +21,28 @@ class DiscordBot
     # メンバーのusername, discriminator, avatarの更新を反映する
     @bot.member_update do |event|
       uid = event.user.id
-      user_info = Discordrb::API::User.resolve("Bot #{ENV['DISCORD_BOT_TOKEN']}", uid)
-      user = JSON.parse(user_info)
+      updated_member = JSON.parse(Discordrb::API::User.resolve("Bot #{ENV['DISCORD_BOT_TOKEN']}", uid))
 
-      name = user['username']
-      discriminator = user['discriminator']
-      avatar_id = user['avatar']
-      avatar = avatar_id ? 
-        Discordrb::API::User.avatar_url(uid, avatar_id) :
-        Discordrb::API::User.default_avatar(discriminator)
+      name = updated_member['username']
+      discriminator = updated_member['discriminator']
+      avatar = avatar_url(uid, updated_member['avatar'], discriminator)
 
       user = User.find_by(uid: uid)
-      user.update!(name: name) if user && user.name != name
-      user.update!(avatar: avatar) if user && user.avatar != avatar
-      user.update!(discriminator: discriminator) if user && user.discriminator != discriminator
+      if user
+        user.update!(name: name) if user.name != name
+        user.update!(avatar: avatar) if user.avatar != avatar
+        user.update!(discriminator: discriminator) if user.discriminator != discriminator
+      end
+    end
+  end
+
+  private
+
+  def avatar_url(uid, avatar_id, discriminator)
+    if avatar_id
+      Discordrb::API::User.avatar_url(uid, avatar_id)
+    else
+      Discordrb::API::User.default_avatar(discriminator)
     end
   end
 end

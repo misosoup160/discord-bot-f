@@ -3,7 +3,7 @@
 class DiscordMessage
   attr_reader :message_count, :host, :comment, :question
 
-  def initialize (
+  def initialize(
     message_count: ENV['SEND_MESSAGE_COUNT'].to_i,
     host: ENV['URL_HOST'],
     comment: nil,
@@ -37,9 +37,7 @@ class DiscordMessage
   private
 
   def pickup_answers
-    if Answer.where(posted: false).count >= message_count
-      answers = Answer.find(Answer.where(posted: false).pluck(:id).sample(message_count))
-    end
+    Answer.find(Answer.where(posted: false).pluck(:id).sample(message_count)) if Answer.where(posted: false).count >= message_count
   end
 
   def post_message(message)
@@ -56,7 +54,7 @@ class DiscordMessage
     {
       title: answer.question.body,
       description: answer.body,
-      color: 16083556,
+      color: 16_083_556,
       timestamp: answer.created_at,
       author: {
         name: answer.user.name,
@@ -102,7 +100,7 @@ class DiscordMessage
     {
       title: question.body,
       description: "質問に回答するには[ここ](#{url})にアクセスしてね。過去に投稿されたみんなの回答も見れるよ！",
-      color: 4216419
+      color: 4_216_419
     }
   end
 end

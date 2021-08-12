@@ -19,9 +19,11 @@ class User < ApplicationRecord
 
     User.find_or_create_by!(provider: provider, uid: uid) do |user|
       user.name = name
-      user.avatar = avatar ?
-        Discordrb::API::User.avatar_url(uid, avatar) :
-        Discordrb::API::User.default_avatar(discriminator)
+      user.avatar = if avatar
+                      Discordrb::API::User.avatar_url(uid, avatar)
+                    else
+                      Discordrb::API::User.default_avatar(discriminator)
+                    end
       user.discriminator = discriminator
       user.admin = true if owner_id == uid
       user.owner = true if owner_id == uid
