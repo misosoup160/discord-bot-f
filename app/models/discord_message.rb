@@ -37,7 +37,12 @@ class DiscordMessage
   private
 
   def pickup_answers
-    Answer.find(Answer.where(posted: false).pluck(:id).sample(message_count)) if Answer.where(posted: false).count >= message_count
+    if Answer.where(posted: false).count >= message_count
+      Answer.find(Answer.where(posted: false).pluck(:id).sample(message_count))
+    else
+      repost_answer = Answer.find_by(id: Answer.where(posted: true).where('posted_at < ?', 3.months.ago).pluck(:id).sample)
+      repost_answer ? [repost_answer] : nil
+    end
   end
 
   def post_message(message)

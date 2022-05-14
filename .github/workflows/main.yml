@@ -40,7 +40,7 @@ jobs:
       - name: run rake assets:precompile
         run: bin/rails assets:precompile
       - name: Run tests
-        run: bin/rails test:all
+        run: bin/rails test test/system/ test/models/
 
   lint:
     runs-on: ubuntu-latest
