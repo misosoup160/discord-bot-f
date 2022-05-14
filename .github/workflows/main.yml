@@ -30,13 +30,17 @@ jobs:
         uses: actions/checkout@v3
       # Add or replace dependency steps here
       - name: Install Ruby and gems
-        uses: ruby/setup-ruby@1
+        uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
+      - name: yarn install
+        run:  yarn install --check-files
       # Add or replace database setup steps here
       - name: Set up database schema
         run: bin/rails db:schema:load
       # Add or replace test runners here
+      - name: run rake assets:precompile
+        run: bin/rails assets:precompile
       - name: Run tests
         run: bin/rails test:all
 
@@ -46,7 +50,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
       - name: Install Ruby and gems
-        uses: ruby/setup-ruby@1
+        uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
       # Add or replace any other lints here
