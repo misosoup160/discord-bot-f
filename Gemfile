@@ -37,11 +37,13 @@ group :development do
   gem 'web-console', '>= 4.1.0'
 
   # not default
-  gem 'bullet'
   gem 'rubocop', require: false
   gem 'rubocop-fjord', require: false
   gem 'rubocop-rails', require: false
   gem 'slim_lint'
+
+  # rails7未対応
+  # gem 'bullet'
 end
 
 group :test do
