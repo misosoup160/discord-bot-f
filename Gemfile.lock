@@ -60,9 +60,10 @@ GEM
       minitest (>= 5.1)
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
-    addressable (2.7.0)
-      public_suffix (>= 2.0.2, < 5.0)
+    addressable (2.8.8)
+      public_suffix (>= 2.0.2, < 8.0)
     ast (2.4.2)
+    base64 (0.3.0)
     bindex (0.8.1)
     bootsnap (1.7.5)
       msgpack (~> 1.0)
@@ -71,15 +72,15 @@ GEM
       activesupport (>= 3.0.0)
       uniform_notifier (~> 1.11)
     byebug (11.1.3)
-    capybara (3.35.3)
+    capybara (3.40.0)
       addressable
+      matrix
       mini_mime (>= 0.1.3)
-      nokogiri (~> 1.8)
+      nokogiri (~> 1.11)
       rack (>= 1.6.0)
       rack-test (>= 0.6.3)
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
-    childprocess (3.0.0)
     concurrent-ruby (1.1.8)
     crack (0.4.5)
       rexml
@@ -144,12 +145,14 @@ GEM
     listen (3.5.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
+    logger (1.7.0)
     loofah (2.9.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.1)
       mini_mime (>= 0.1.1)
     marcel (1.0.1)
+    matrix (0.4.3)
     method_source (1.0.0)
     mime-types (3.3.1)
       mime-types-data (~> 3.2015)
@@ -162,9 +165,11 @@ GEM
     multipart-post (2.1.1)
     netrc (0.11.0)
     nio4r (2.5.7)
-    nokogiri (1.11.6-x86_64-darwin)
+    nokogiri (1.17.2-arm64-darwin)
       racc (~> 1.4)
-    nokogiri (1.11.6-x86_64-linux)
+    nokogiri (1.17.2-x86_64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.17.2-x86_64-linux)
       racc (~> 1.4)
     oauth2 (1.4.7)
       faraday (>= 0.8, < 2.0)
@@ -191,19 +196,19 @@ GEM
     parser (3.0.1.1)
       ast (~> 2.4.1)
     pg (1.2.3)
-    public_suffix (4.0.6)
+    public_suffix (6.0.2)
     puma (5.3.2)
       nio4r (~> 2.0)
-    racc (1.5.2)
-    rack (2.2.3)
+    racc (1.8.1)
+    rack (2.2.21)
     rack-mini-profiler (2.3.2)
       rack (>= 1.2.0)
     rack-protection (2.1.0)
       rack
     rack-proxy (0.6.5)
       rack
-    rack-test (1.1.0)
-      rack (>= 1.0, < 3)
+    rack-test (2.2.0)
+      rack (>= 1.3)
     rails (6.1.3.2)
       actioncable (= 6.1.3.2)
       actionmailbox (= 6.1.3.2)
@@ -238,13 +243,13 @@ GEM
     rb-fsevent (0.11.0)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
-    regexp_parser (2.1.1)
+    regexp_parser (2.11.3)
     rest-client (2.1.0)
       http-accept (>= 1.7.0, < 2.0)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
-    rexml (3.2.5)
+    rexml (3.4.4)
     rubocop (1.16.0)
       parallel (~> 1.10)
       parser (>= 3.0.0.0)
@@ -268,7 +273,7 @@ GEM
       rubocop (>= 1.7.0, < 2.0)
     ruby-progressbar (1.11.0)
     ruby2_keywords (0.0.4)
-    rubyzip (2.3.0)
+    rubyzip (2.4.1)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.4.0)
@@ -279,9 +284,12 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
-    selenium-webdriver (3.142.7)
-      childprocess (>= 0.5, < 4.0)
-      rubyzip (>= 1.2.2)
+    selenium-webdriver (4.26.0)
+      base64 (~> 0.2)
+      logger (~> 1.4)
+      rexml (~> 3.2, >= 3.2.5)
+      rubyzip (>= 1.2.2, < 3.0)
+      websocket (~> 1.0)
     semantic_range (3.0.0)
     slim (4.1.0)
       temple (>= 0.7.6, < 0.9)
@@ -319,10 +327,6 @@ GEM
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
       railties (>= 6.0.0)
-    webdrivers (4.6.0)
-      nokogiri (~> 1.6)
-      rubyzip (>= 1.3.0)
-      selenium-webdriver (>= 3.0, < 4.0)
     webmock (3.13.0)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
@@ -332,7 +336,7 @@ GEM
       rack-proxy (>= 0.6.1)
       railties (>= 5.2)
       semantic_range (>= 2.3.0)
-    websocket (1.2.9)
+    websocket (1.2.11)
     websocket-client-simple (0.3.0)
       event_emitter
       websocket
@@ -344,6 +348,7 @@ GEM
     zeitwerk (2.4.2)
 
 PLATFORMS
+  arm64-darwin-22
   x86_64-darwin-19
   x86_64-darwin-20
   x86_64-linux
@@ -352,7 +357,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.4)
   bullet
   byebug
-  capybara (>= 3.26)
+  capybara (>= 3.40)
   discordrb
   dotenv-rails
   html2slim
@@ -371,14 +376,13 @@ DEPENDENCIES
   rubocop-fjord
   rubocop-rails
   sass-rails (>= 6)
-  selenium-webdriver
+  selenium-webdriver (>= 4.0)
   slim-rails
   slim_lint
   spring
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 4.1.0)
-  webdrivers
   webmock
   webpacker (~> 5.0)
 
