@@ -6,6 +6,10 @@ updates:
     schedule:
       interval: "weekly"
     open-pull-requests-limit: 10
+    ignore:
+      # Rails 7+にアップグレードするまでRailsのメジャーバージョンは固定
+      - dependency-name: "rails"
+        update-types: ["version-update:semver-major"]
 
   # npm (JavaScript dependencies)
   - package-ecosystem: "npm"
