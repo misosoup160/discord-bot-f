@@ -38,7 +38,7 @@ class AnswersTest < ApplicationSystemTestCase
     click_link '自分の回答'
     click_link '好きな食べ物はなんですか？'
     assert_no_text '編集'
-    assert_no_text '削除'
+    assert_text '削除'
   end
 
   test 'creating a Answer' do

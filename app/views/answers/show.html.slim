@@ -25,3 +25,10 @@
     .page-link
       = link_to '編集', edit_answer_path(@answer), class: 'btn btn-edit'
       = link_to '削除する', answer_path(@answer), method: :delete, data: { confirm: '本当によろしいですか？' }, class: 'delete-link'
+  - elsif @answer.posted && @answer.user == current_user
+    .page-link
+      = link_to '同じ質問に回答する', new_answer_path(question: @answer.question.id), class: 'btn btn-edit'
+      = link_to '削除する', answer_path(@answer), method: :delete, data: { confirm: '本当によろしいですか？' }, class: 'delete-link'
+  - elsif @answer.posted
+    .page-link
+      = link_to '同じ質問に回答する', new_answer_path(question: @answer.question.id), class: 'btn btn-edit'
