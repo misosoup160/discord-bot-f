@@ -381,6 +381,7 @@ GEM
     zeitwerk (2.6.18)
 
 PLATFORMS
+  x86_64-linux
   arm64-darwin-24
 
 DEPENDENCIES
