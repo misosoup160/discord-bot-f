@@ -15,7 +15,6 @@ module AuthenticationHelper
       }
     }
     OmniAuth.config.mock_auth[:discord] = OmniAuth::AuthHash.new(auth_hash)
-    auth_hash
   end
 
   def login_as(user)

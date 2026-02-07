@@ -42,9 +42,6 @@ RSpec.configure do |config|
   # OmniAuth test mode
   OmniAuth.config.test_mode = true
 
-  # WebMock
-  WebMock.allow_net_connect!
-
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = Rails.root.join('spec/fixtures')
 

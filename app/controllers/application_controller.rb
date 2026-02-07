@@ -14,4 +14,8 @@ class ApplicationController < ActionController::Base
     session[:return_to] = request.url
     redirect_to welcome_url unless current_user
   end
+
+  def require_admin
+    redirect_to root_path unless current_user&.admin
+  end
 end

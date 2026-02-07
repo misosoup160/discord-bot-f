@@ -46,8 +46,4 @@ class Admin::QuestionsController < ApplicationController
   def question_params
     params.require(:question).permit(:body)
   end
-
-  def require_admin
-    redirect_to root_path unless current_user.admin
-  end
 end

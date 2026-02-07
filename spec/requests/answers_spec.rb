@@ -108,7 +108,7 @@ RSpec.describe 'AnswersController', type: :request do
       expect(response).to have_http_status(:found)
       follow_redirect!
       expect(response.body).to include('回答の内容を更新しました。')
-      expect(response.body).to include('シマアジで')
+      expect(response.body).to include('シマアジです')
       expect(answer_bob_sushi.reload.body).to eq('シマアジです')
     end
   end
@@ -129,8 +129,6 @@ RSpec.describe 'AnswersController', type: :request do
   end
 
   describe 'ログイン後のリダイレクト' do
-    let(:bob) { create(:bob) }
-
     it 'ログイン後に訪問していたページにリダイレクトする' do
       get answers_path
       expect(response).to have_http_status(:found)
