@@ -25,14 +25,14 @@ RSpec.describe DiscordMessage, type: :model do
                      .with { |req| JSON.parse(req.body)['content'] == 'こんにちは！今日もみんなに教えてもらったことを紹介するよ〜。' }
         stub_answer = stub_request(:post, message_url)
                       .with do |req|
-          body = JSON.parse(req.body)
-          body['content'] == "<@#{answer.user.uid}>さんに聞きました！" &&
-            body['embeds']&.first&.dig('title') == answer.question.body
+                        body = JSON.parse(req.body)
+                        body['content'] == "<@#{answer.user.uid}>さんに聞きました！" &&
+                          body['embeds']&.first&.dig('title') == answer.question.body
         end
         stub_end = stub_request(:post, message_url)
                    .with do |req|
-          body = JSON.parse(req.body)
-          body['content'] == "確かに〜。\n今日はみんなにこんなことも聞いてみたいな。"
+                     body = JSON.parse(req.body)
+                     body['content'] == "確かに〜。\n今日はみんなにこんなことも聞いてみたいな。"
         end
 
         DiscordMessage.new(message_count: 1, host: 'example.com', comment: '確かに〜。', question: question_sushi)
@@ -48,8 +48,8 @@ RSpec.describe DiscordMessage, type: :model do
       it 'Discord APIに質問のみのメッセージを投稿する' do
         stub_no_answer = stub_request(:post, message_url)
                          .with do |req|
-          body = JSON.parse(req.body)
-          body['content'].include?('こんにちは！こちらは毎日サーバーのメンバーのことを紹介するBotです！')
+                           body = JSON.parse(req.body)
+                           body['content'].include?('こんにちは！こちらは毎日サーバーのメンバーのことを紹介するBotです！')
         end
 
         DiscordMessage.new(message_count: 3, host: 'example.com', comment: '確かに〜。', question: question_food)
