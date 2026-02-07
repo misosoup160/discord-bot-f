@@ -41,8 +41,8 @@ jobs:
       # Add or replace test runners here
       - name: run rake assets:precompile
         run: bin/rails assets:precompile
-      - name: Run tests
-        run: bin/rails test test/system/ test/models/
+      - name: Run RSpec
+        run: bundle exec rspec
 
   lint:
     runs-on: ubuntu-latest
@@ -56,4 +56,5 @@ jobs:
       # Add or replace any other lints here
       - name: Lint Ruby files
         run: bundle exec rubocop --parallel
-
+      - name: Lint Slim
+        run: bundle exec slim-lint -r github app/views

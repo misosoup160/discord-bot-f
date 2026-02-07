@@ -21,10 +21,4 @@ class Admin::UsersController < ApplicationController
     @keyword = params[:keyword]
     render :index
   end
-
-  private
-
-  def require_admin
-    redirect_to root_path unless current_user.admin
-  end
 end

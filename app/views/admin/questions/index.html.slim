@@ -10,7 +10,7 @@
         = link_to edit_admin_question_path(question), class: 'btn-icon', id: 'admin-question-edit'
           i.fas.fa-edit
   = paginate @questions
--else
+- else
   .empty-message
     i.far.fa-sad-tear
     p
