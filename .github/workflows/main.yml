@@ -56,4 +56,5 @@ jobs:
       # Add or replace any other lints here
       - name: Lint Ruby files
         run: bundle exec rubocop --parallel
-
+      - name: Lint Slim
+        run: bundle exec slim-lint -r github app/views
