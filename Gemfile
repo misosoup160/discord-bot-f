@@ -25,7 +25,7 @@ end
 group :development do
   gem 'bullet'
   gem 'listen', '~> 3.3'
-  gem 'rack-mini-profiler', '~> 2.0'
+  gem 'rack-mini-profiler', '~> 4.0'
   gem 'rubocop', require: false
   gem 'rubocop-fjord', require: false
   gem 'rubocop-rails', require: false
