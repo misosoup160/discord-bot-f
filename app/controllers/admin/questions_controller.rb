@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Admin::QuestionsController < ApplicationController
+  before_action :require_admin
   before_action :set_question, only: %i[edit update destroy]
 
   def index
@@ -44,5 +45,9 @@ class Admin::QuestionsController < ApplicationController
 
   def question_params
     params.require(:question).permit(:body)
+  end
+
+  def require_admin
+    redirect_to root_path unless current_user.admin
   end
 end
