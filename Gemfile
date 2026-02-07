@@ -10,7 +10,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'concurrent-ruby', '1.3.4'
 gem 'jbuilder', '~> 2.7'
 gem 'pg', '~> 1.5'
-gem 'puma', '~> 5.0'
+gem 'puma', '~> 7.2'
 gem 'rails', '~> 6.1.7'
 gem 'sass-rails', '>= 6'
 gem 'turbolinks', '~> 5'
