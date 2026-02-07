@@ -46,12 +46,14 @@ class DiscordMessage
   end
 
   def post_message(message)
+    embeds = message[:embed] ? [message[:embed]] : nil
+
     Discordrb::API::Channel.create_message(
       "Bot #{ENV['DISCORD_BOT_TOKEN']}",
       ENV['DISCORD_CHANNEL_ID'],
       message[:content],
       false,
-      message[:embed]
+      embeds
     )
   end
 
