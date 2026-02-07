@@ -132,7 +132,7 @@ GEM
     jbuilder (2.13.0)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
-    json (2.18.0)
+    json (2.18.1)
     jwt (3.1.2)
       base64
     kaminari (1.2.2)
@@ -222,7 +222,7 @@ GEM
       racc
     pg (1.6.3-arm64-darwin)
     pg (1.6.3-x86_64-linux)
-    prism (1.8.0)
+    prism (1.9.0)
     public_suffix (6.0.2)
     puma (7.2.0)
       nio4r (~> 2.0)
@@ -352,7 +352,7 @@ GEM
       actionpack (>= 3.1)
       railties (>= 3.1)
       slim (>= 3.0, < 6.0, != 5.0.0)
-    slim_lint (0.33.0)
+    slim_lint (0.34.0)
       rexml (~> 3.2)
       rubocop (>= 1.0, < 2.0)
       slim (>= 3.0, < 6.0)
