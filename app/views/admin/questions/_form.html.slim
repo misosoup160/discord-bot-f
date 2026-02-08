@@ -1,5 +1,3 @@
-= javascript_pack_tag 'question_text_count'
-
 - if question.errors.present?
   .error-message.alert
     ul
@@ -17,3 +15,29 @@
       - else
         = f.submit '内容変更', class: 'btn btn-submit'
         = link_to  '削除する', [:admin, question], method: :delete, data: { confirm: "質問を消去するとその質問に対する過去の回答も消去されます。\n本当によろしいですか？" }, class: 'delete-link', id: 'admin-question-delete'
+
+javascript:
+  document.addEventListener('turbolinks:load', () => {
+    const maxCount = 200
+    const inputArea = document.getElementById('question_body')
+    const counter = document.getElementById('question_counter')
+
+    const rawValue = inputArea.value
+    const crlf = rawValue.match(/(\r\n|\n|\r)/g)
+    const crlfCount = crlf ? crlf.length : 0
+    const inputCharCount = inputArea.value.length + crlfCount
+    counter.innerHTML = maxCount - inputCharCount
+
+    inputArea.onkeyup = () => {
+      const rawValue = inputArea.value
+      const crlf = rawValue.match(/(\r\n|\n|\r)/g)
+      const crlfCount = crlf ? crlf.length : 0
+      const inputCharCount = inputArea.value.length + crlfCount
+      counter.innerHTML = maxCount - inputCharCount
+      if (maxCount - inputCharCount < 0) {
+        counter.style.color = '#fdad10'
+      } else {
+        counter.style.color = '#ccc'
+      }
+    }
+  });

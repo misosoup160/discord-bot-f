@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_17_063340) do
-
+ActiveRecord::Schema[7.0].define(version: 2026_02_08_012349) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,18 +18,18 @@ ActiveRecord::Schema.define(version: 2021_06_17_063340) do
     t.bigint "user_id", null: false
     t.bigint "question_id", null: false
     t.text "body"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.boolean "posted", default: false, null: false
-    t.datetime "posted_at"
+    t.datetime "posted_at", precision: nil
     t.index ["question_id"], name: "index_answers_on_question_id"
     t.index ["user_id"], name: "index_answers_on_user_id"
   end
 
   create_table "questions", force: :cascade do |t|
     t.string "body"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -39,8 +38,8 @@ ActiveRecord::Schema.define(version: 2021_06_17_063340) do
     t.string "name", null: false
     t.string "avatar"
     t.string "discriminator", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.boolean "admin", default: false, null: false
     t.boolean "owner", default: false, null: false
     t.index ["provider", "uid"], name: "index_users_on_provider_and_uid", unique: true
