@@ -41,6 +41,7 @@ Rails.application.config.active_support.remove_deprecated_time_with_zone_name = 
 Rails.application.config.active_support.executor_around_test_case = true
 
 # Set both the `:open_timeout` and `:read_timeout` values for `:smtp` delivery method.
+# 有効化しない理由: Action Mailer railtieが無効化されているため、この設定を有効化するとエラーになる
 # Rails.application.config.action_mailer.smtp_timeout = 5
 
 # The ActiveStorage video previewer will now use scene change detection to generate
@@ -101,9 +102,11 @@ Rails.application.config.action_dispatch.default_headers = {
 # and you have no plans to rollback.
 # When you're ready to change format, add this to `config/application.rb` (NOT this file):
 #  config.active_support.cache_format_version = 7.0
+# 有効化しない理由: Rails 6.1へのロールバックができなくなるため、load_defaults 7.0への移行後に検討
 
 
 # Cookie serializer: 2 options
+# 有効化しない理由: config/initializers/cookies_serializer.rb で既に :json に設定済み
 #
 # If you're upgrading and haven't set `cookies_serializer` previously, your cookie serializer
 # is `:marshal`. The default for new apps is `:json`.
@@ -130,14 +133,15 @@ Rails.application.config.action_dispatch.default_headers = {
 # See https://guides.rubyonrails.org/action_controller_overview.html#cookies for more information.
 
 # Change the return value of `ActionDispatch::Request#content_type` to the Content-Type header without modification.
-# Rails.application.config.action_dispatch.return_only_request_media_type_on_content_type = false
+Rails.application.config.action_dispatch.return_only_request_media_type_on_content_type = false
 
 # Active Storage `has_many_attached` relationships will default to replacing the current collection instead of appending to it.
 # Thus, to support submitting an empty collection, the `file_field` helper will render an hidden field `include_hidden` by default when `multiple_file_field_include_hidden` is set to `true`.
 # See https://guides.rubyonrails.org/configuring.html#config-active-storage-multiple-file-field-include-hidden for more information.
-# Rails.application.config.active_storage.multiple_file_field_include_hidden = true
+Rails.application.config.active_storage.multiple_file_field_include_hidden = true
 
 # ** Please read carefully, this must be configured in config/application.rb (NOT this file) **
 # Disables the deprecated #to_s override in some Ruby core classes
 # See https://guides.rubyonrails.org/configuring.html#config-active-support-disable-to-s-conversion for more information.
+# 有効化しない理由: config/application.rb に追加する必要がある。load_defaults 7.0への移行後に検討
 # config.active_support.disable_to_s_conversion = true
