@@ -8,6 +8,7 @@ RSpec.describe 'AnswersController', type: :request do
   let!(:question_food) { create(:question, body: '好きな食べ物はなんですか？') }
   let!(:question_sushi) { create(:question, body: '好きな寿司ネタはなんですか？') }
   let!(:answer_alice_food) { create(:answer, :posted, user: alice, question: question_food, body: '焼肉定食です') }
+  let!(:answer_alice_sushi) { create(:answer, user: alice, question: question_sushi, body: 'タイです') }
   let!(:answer_bob_food) { create(:answer, :posted, user: bob, question: question_food, body: 'オムライスです') }
   let!(:answer_bob_sushi) { create(:answer, user: bob, question: question_sushi, body: 'アジです') }
 
@@ -65,21 +66,44 @@ RSpec.describe 'AnswersController', type: :request do
     context '投稿済み回答を閲覧する場合' do
       before { login_as(bob) }
 
-      it '投稿済み回答の編集リンクを表示しない' do
-        get answer_path(answer_bob_food)
-        expect(response).to have_http_status(:success)
-        expect(response.body).not_to include('編集')
-        expect(response.body).to include('削除')
+      context '自分の回答を閲覧する場合' do
+        it '投稿済み回答の編集リンクを表示しない' do
+          get answer_path(answer_bob_food)
+          expect(response).to have_http_status(:success)
+          expect(response.body).not_to include('編集')
+          expect(response.body).to include('同じ質問に回答する')
+          expect(response.body).to include('削除')
+        end
+      end
+
+      context '他人の回答を閲覧する場合' do
+        it '投稿済み回答の編集リンクを表示しない' do
+          get answer_path(answer_alice_food)
+          expect(response).to have_http_status(:success)
+          expect(response.body).not_to include('編集')
+          expect(response.body).to include('同じ質問に回答する')
+          expect(response.body).not_to include('削除')
+        end
       end
     end
 
     context '未投稿回答を閲覧する場合' do
       before { login_as(bob) }
 
-      it '未投稿回答の編集リンクを表示する' do
-        get answer_path(answer_bob_sushi)
-        expect(response).to have_http_status(:success)
-        expect(response.body).to include('編集')
+      context '自分の回答を閲覧する場合' do
+        it '未投稿回答の編集リンクを表示する' do
+          get answer_path(answer_bob_sushi)
+          expect(response).to have_http_status(:success)
+          expect(response.body).to include('編集')
+        end
+      end
+
+      context '他人の回答を閲覧する場合' do
+        it '他人の未投稿回答は閲覧できない' do
+          expect do
+            get answer_path(answer_alice_sushi)
+          end.to raise_error(ActiveRecord::RecordNotFound)
+        end
       end
     end
   end
@@ -87,44 +111,154 @@ RSpec.describe 'AnswersController', type: :request do
   describe 'GET /answers/:id/edit' do
     before { login_as(bob) }
 
-    it '未投稿回答の編集フォームを表示する' do
-      get edit_answer_path(answer_bob_sushi)
-      expect(response).to have_http_status(:success)
-      expect(response.body).to include('アジです')
+    context '自分の回答の場合' do
+      context '投稿済みの回答の場合' do
+        it '投稿済み回答の編集フォームを表示できない' do
+          expect do
+            get edit_answer_path(answer_bob_food)
+          end.to raise_error(ActiveRecord::RecordNotFound)
+        end
+      end
+
+      context '未投稿の回答の場合' do
+        it '未投稿回答の編集フォームを表示する' do
+          get edit_answer_path(answer_bob_sushi)
+          expect(response).to have_http_status(:success)
+          expect(response.body).to include('アジです')
+        end
+      end
+    end
+
+    context '他人の回答の場合' do
+      context '未投稿回答の場合' do
+        it '他人の投稿済み回答の編集フォームは表示できない' do
+          expect do
+            get edit_answer_path(answer_alice_food)
+          end.to raise_error(ActiveRecord::RecordNotFound)
+        end
+      end
+
+      context '投稿済み回答の場合' do
+        it '他人の未投稿回答の編集フォームは表示できない' do
+          expect do
+            get edit_answer_path(answer_alice_sushi)
+          end.to raise_error(ActiveRecord::RecordNotFound)
+        end
+      end
     end
   end
 
   describe 'PATCH /answers/:id' do
     before { login_as(bob) }
 
-    it '回答を更新する' do
-      patch answer_path(answer_bob_sushi), params: {
-        question_id: question_sushi.id,
-        answer: {
-          body: 'シマアジです'
-        }
-      }
+    context '自分の回答の場合' do
+      context '未投稿回答の場合' do
+        it '回答を更新できる' do
+          patch answer_path(answer_bob_sushi), params: {
+            question_id: question_sushi.id,
+            answer: {
+              body: 'サーモンです'
+            }
+          }
 
-      expect(response).to have_http_status(:found)
-      follow_redirect!
-      expect(response.body).to include('回答の内容を更新しました。')
-      expect(response.body).to include('シマアジです')
-      expect(answer_bob_sushi.reload.body).to eq('シマアジです')
+          expect(response).to have_http_status(:found)
+          follow_redirect!
+          expect(response.body).to include('回答の内容を更新しました。')
+          expect(response.body).to include('サーモンです')
+          expect(answer_bob_sushi.reload.body).to eq('サーモンです')
+        end
+      end
+
+      context '投稿済み回答の場合' do
+        it '回答を更新できない' do
+          expect do
+            patch answer_path(answer_bob_food), params: {
+              question_id: question_food.id,
+              answer: {
+                body: 'オムそばです'
+              }
+            }
+          end.to raise_error(ActiveRecord::RecordNotFound)
+        end
+      end
+    end
+
+    context '他人の回答の場合' do
+      context '未投稿回答の場合' do
+        it '回答を更新できない' do
+          expect do
+            patch answer_path(answer_alice_sushi), params: {
+              question_id: question_sushi.id,
+              answer: {
+                body: 'ウニです'
+              }
+            }
+          end.to raise_error(ActiveRecord::RecordNotFound)
+        end
+      end
+
+      context '投稿済み回答の場合' do
+        it '回答を更新できない' do
+          expect do
+            patch answer_path(answer_alice_food), params: {
+              question_id: question_food.id,
+              answer: {
+                body: 'カレーライスです'
+              }
+            }
+          end.to raise_error(ActiveRecord::RecordNotFound)
+        end
+      end
     end
   end
 
   describe 'DELETE /answers/:id' do
     before { login_as(bob) }
 
-    it '回答を削除する' do
-      expect do
-        delete answer_path(answer_bob_sushi)
-      end.to change(Answer, :count).by(-1)
+    context '自分の回答の場合' do
+      context '投稿済み回答の場合' do
+        it '回答を削除できる' do
+          expect do
+            delete answer_path(answer_bob_food)
+          end.to change(Answer, :count).by(-1)
 
-      expect(response).to have_http_status(:found)
-      follow_redirect!
-      expect(response.body).to include('回答を削除しました。')
-      expect(response.body).not_to include('アジです')
+          expect(response).to have_http_status(:found)
+          follow_redirect!
+          expect(response.body).to include('回答を削除しました。')
+          expect(response.body).not_to include('オムライスです')
+        end
+      end
+
+      context '未投稿回答の場合' do
+        it '回答を削除できる' do
+          expect do
+            delete answer_path(answer_bob_sushi)
+          end.to change(Answer, :count).by(-1)
+
+          expect(response).to have_http_status(:found)
+          follow_redirect!
+          expect(response.body).to include('回答を削除しました。')
+          expect(response.body).not_to include('アジです')
+        end
+      end
+    end
+
+    context '他人の回答の場合' do
+      context '投稿済み回答の場合' do
+        it '回答を削除できない' do
+          expect do
+            delete answer_path(answer_alice_food)
+          end.to raise_error(ActiveRecord::RecordNotFound)
+        end
+      end
+
+      context '未投稿回答の場合' do
+        it '回答を削除できない' do
+          expect do
+            delete answer_path(answer_alice_sushi)
+          end.to raise_error(ActiveRecord::RecordNotFound)
+        end
+      end
     end
   end
 
