@@ -11,7 +11,7 @@ https://mssp160.netlify.app/2021-07/d1/
 
 ## 開発環境
 
-- Ruby 3.2.3（openssl 1.1）
+- Ruby 3.2.3
 - Rails 7.0.10
 
 ## 機能概要
