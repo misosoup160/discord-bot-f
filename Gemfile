@@ -14,7 +14,6 @@ gem 'pg', '~> 1.5'
 gem 'puma', '~> 7.2'
 gem 'sass-rails', '>= 6'
 gem 'turbolinks', '~> 5'
-gem 'webpacker', '~> 5.0'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
