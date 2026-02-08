@@ -13,10 +13,11 @@ gem 'jbuilder', '~> 2.7'
 gem 'pg', '~> 1.5'
 gem 'puma', '~> 7.2'
 gem 'sass-rails', '>= 6'
+gem 'sprockets-rails'
 gem 'turbolinks', '~> 5'
 
 group :development, :test do
-  gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails'
   gem 'rspec-rails', '~> 6.1'
 end
