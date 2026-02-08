@@ -5,7 +5,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.2.3'
 
-gem 'rails', '~> 7.0.8'
+gem 'rails', '~> 8.1.2'
 
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'concurrent-ruby', '1.3.4' # Ruby 3.2.3 compatibility
@@ -46,6 +46,6 @@ gem 'kaminari'
 gem 'omniauth'
 gem 'omniauth-discord'
 gem 'omniauth-rails_csrf_protection'
-gem 'rails-i18n', '~> 7.0.0'
+gem 'rails-i18n', '~> 8.1.0'
 gem 'slim-rails'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
