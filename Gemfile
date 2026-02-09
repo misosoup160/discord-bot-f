@@ -8,7 +8,7 @@ ruby '3.2.3'
 gem 'rails', '~> 7.0.8'
 
 gem 'bootsnap', '>= 1.4.4', require: false
-gem 'concurrent-ruby', '1.3.4' # Ruby 3.2.3 compatibility
+gem 'concurrent-ruby', '1.3.6' # Ruby 3.2.3 compatibility
 gem 'jbuilder', '~> 2.7'
 gem 'pg', '~> 1.5'
 gem 'puma', '~> 7.2'
