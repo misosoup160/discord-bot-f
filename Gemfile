@@ -5,7 +5,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.2.3'
 
-gem 'rails', '~> 7.0.8'
+gem 'rails', '~> 7.2.3'
 
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'concurrent-ruby', '1.3.4' # Ruby 3.2.3 compatibility
