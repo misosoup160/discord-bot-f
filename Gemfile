@@ -11,7 +11,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'concurrent-ruby', '1.3.4' # Ruby 3.2.3 compatibility
 gem 'jbuilder', '~> 2.7'
 gem 'pg', '~> 1.5'
-gem 'puma', '~> 7.2'
+gem 'puma', '~> 8.0'
 gem 'sass-rails', '>= 6'
 gem 'sprockets-rails'
 gem 'turbolinks', '~> 5'
