@@ -254,7 +254,7 @@ GEM
       date
       stringio
     public_suffix (6.0.2)
-    puma (7.2.0)
+    puma (8.0.0)
       nio4r (~> 2.0)
     racc (1.8.1)
     rack (2.2.21)
@@ -460,7 +460,7 @@ DEPENDENCIES
   omniauth-discord
   omniauth-rails_csrf_protection
   pg (~> 1.5)
-  puma (~> 7.2)
+  puma (~> 8.0)
   rack-mini-profiler (~> 4.0)
   rails (~> 7.0.8)
   rails-i18n (~> 7.0.0)
